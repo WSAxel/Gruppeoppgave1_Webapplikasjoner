@@ -18,6 +18,7 @@
     "Gruppeoppgave1_Webapplikasjoner": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "index.html",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
