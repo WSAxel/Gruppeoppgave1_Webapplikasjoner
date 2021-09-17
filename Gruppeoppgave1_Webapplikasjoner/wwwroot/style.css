@@ -1,0 +1,89 @@
+
+body {
+    background-image: url(solnedgang.jpg);
+    background-position: center;
+    background-size: auto;
+}
+
+
+#topnav {
+    background-color: rgb(43, 36, 36);
+    opacity: 0.6;
+}
+#logo {
+    height:100px;
+    width:100px;
+}
+#reiserute {
+    width: 600px;
+    border: 1px solid #fff;
+    margin: 10px;
+    margin-left: 8px;
+    padding: 5px;
+    color: #fff;
+}
+
+#form {
+    background-color: rgb(43, 36, 36);
+    height: 400px;
+    width: 800px;
+    margin: auto;
+    margin-top: 100px;
+    opacity: 0.8;
+    border-radius: 25px;
+}
+
+#first-group {
+    border: none;
+    width: 400px;
+    margin-top: 10px;
+    position: absolute;
+}
+
+#content {
+    border: 1px solid #fff;
+    margin: 10px;
+    margin-left: 8px;
+    padding: 5px;
+}
+
+    #content #input-group {
+        border: none;
+        outline: none;
+        background: transparent;
+        margin-left: 8px;
+        width: 300px;
+        color: #fff;
+    }
+
+::placeholder {
+    color: #fff;
+}
+
+.fa {
+    display: inline-block;
+    color: red;
+    border-right: 1px solid #fff;
+    padding: 8px;
+    margin-left: 6px;
+}
+
+#second-group {
+    border: none;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+#submit-btn {
+    margin-top: 0px;
+    margin-left: 600px;
+    background: transparent;
+    color: #fff;
+    width: 150px;
+    border: 1px solid red;
+    outline: none;
+    padding: 0px;
+    font-size: 20px;
+    border-radius: 20px;
+}

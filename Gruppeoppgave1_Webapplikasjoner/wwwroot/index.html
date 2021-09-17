@@ -3,110 +3,134 @@
 <head>
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-    
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">-
     <script src="js/index.js"></script>
 
-    <title></title>
+    <title>Bestilling av båtturer</title>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Logo</a>
+    <div id="topnav">
+        <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav text-right text-white ml-auto">
+                        <img src="logo.png"  id="logo"/>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Reiser</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Kundeservice</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Priser</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-user fa-2x"></i></a></li>
+                        <li class="nav-item" role="presentation"></li>
+                    </ul>
+                </div>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Reiser</a></li>
-                <li><a href="#">Kundeservice</a></li>
-                <li><a href="#">Priser</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-          
-                <li><a href="#">Min side</a></li>
-            </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <div class="container">
-        <div class="row">
-            <h1>Bestill båtreise</h1>
-            <form class="form">
-                <div class="form-group com-md-1">
-                    <label for="AntallVoksne">
-                        Voksne
-                        <select id="AntallVoksne" class="form-select">
-                            <option selected>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
-                    </label>
+        <form class="form-group">
+            <div id="form">
+                <h1 class="text-white text-center">Bestill din reise</h1>
 
-                </div>
-                <div class="form-group com-md-1">
-                    <label for="AntallBarn">
-                        Barn
-                        <select id="AntallBArn" class="form-select">
-                            <option selected>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select>
-                    </label>
+                <div id="rute">
+                    <i class="fa fa-ship fa-2x" aria-hidden="true"></i>
+                    <select id="reiserute" style="background-color: rgb(43, 36, 36);">
+                        <option value="">Velg rute</option>
+                        <option value="">Oslo --> Kiel</option>
+                        <option value="">Oslo --> Hirtshals</option>
+                        <option value="">Oslo --> København</option>
+                        <option value="">Oslo --> Helsinki</option>
+                        <option value="">Oslo --> Stockholm</option>
+
+                    </select>
                 </div>
 
-                <div class="checkbox">
-                    <label for="Kjoretoy">
-                        Kjøretøy <input type="checkbox" id="Kjoretoy" value="Kjoretoy" />
-                    </label>
+                <div id="first-group">
 
-                </div>
-                <div class="form-group">
-                    <label for="Fornavn">Fornavn</label>
-                    <input type="text" class="form-control" id="Fornavn" oninput="validate()" />
-                    <div class="text-danger" id="feilNavn"></div>
-                </div>
-                <div class="form-group">
-                    <label for="Etternavn">Etternavn</label>
-                    <input type="text" class="form-control" id="Etternavn" oninput="validate()" />
-                    <div class="text-danger" id="feilEtternavn"></div>
-                </div>
-                <div class="form-group">
-                    <label for="tlf">Telefonnr</label>
-                    <input type="text" class="form-control" id="tlf" oninput="validate()" />
-                    <div class="text-danger" id="feilTlf"></div>
-
-                    <div class="form-group">
-                    <label for="Dato">Dato</label>
-                    <input type="text" class="form-control" id="Dato" oninput="validate()" />
-                    <div class="text-danger" id="feilDato"></div>
-                </div>
-
-                </div>
-                    <div class="form-group">
-                        <label for="Mail">Mail</label>
-                        <input type="text" class="form-control" id="Mail" oninput="validate()" />
-                        <div class="text-danger" id="feilMail"></div>
+                    <div id="content">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"></i> <!-- Bruker aria-hidden for å gjøre det accessible (screen readers leser ikke ikonene) -->
+                        <input type="text" id="input-group" oninput="validate()" placeholder="Fornavn">
+                        <div class="text-danger" id="feilNavn"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="Adresse">Adresse</label>
-                        <input type="text" class="form-control" id="Adresse" oninput="validate()" />
+
+                    <div id="content">
+                        <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="input-group" oninput="validate()" placeholder="Telefonnr.">
+                        <div class="text-danger" id="feilTlf"></div>
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="input-group" oninput="validate()" placeholder="Reisedato">
+                        <div class="text-danger" id="feilDato"></div>
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-users fa-lg" aria-hidden="true"></i>
+                        <select id="input-group" style="background-color: rgb(43, 36, 36);">
+                            <option value="">Antall voksne</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div id="second-group">
+
+                    <div id="content">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="input-group" oninput="validate()" placeholder="Etternavn">
+                        <div class="text-danger" id="feilEtternavn"></div>
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="input-group" oninput="validate()" placeholder="E-post">
+                        <div class="text-danger" id="feilEpost"></div>
+                    </div>
+
+                    <div id="content">
+                        <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="input-group" oninput="validate()" placeholder="Adresse">
                         <div class="text-danger" id="feilAdresse"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="Postnr">Postnr</label>
-                        <input type="text" class="form-control" id="Postnr" oninput="validate()" />
-                        <div class="text-danger" id="feilPostnr"></div>
+
+                    <div id="content">
+                        <i class="fa fa-users fa-lg" aria-hidden="true"></i>
+                        <select id="input-group" style="background-color: rgb(43, 36, 36);">
+                            <option value="">Antall barn</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="Poststed">Poststed</label>
-                        <input type="text" class="form-control" id="Postnr" oninput="validate()" />
-                        <div class="text-danger" id="feilPostnr"></div>
+
+                </div>
+                <div class="checkbox">
+                    <div class="text-light">
+                        <label for="Kjoretoy">
+                            Kjøretøy <input type="checkbox" id="Kjoretoy" value="Kjoretoy" />
+                        </label>
                     </div>
-</form>
-            <button type="button" class="btn btn-primary" onclick="bestill()">Bestill</button>
-        </div>
+                </div>
+
+                <button type="submit" value="Submit" id="submit-btn">Bestill</button>
+
+            </div>
+        </form>
     </div>
 </body>
 </html>
