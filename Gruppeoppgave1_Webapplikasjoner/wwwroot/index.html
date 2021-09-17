@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <script src="js/index.js"></script>
+
     <title></title>
 </head>
 <body>
@@ -73,28 +76,34 @@
                     <label for="tlf">Telefonnr</label>
                     <input type="text" class="form-control" id="tlf" oninput="validate()" />
                     <div class="text-danger" id="feilTlf"></div>
+
+                    <div id="content">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <input type="text" id="input-group" placeholder="Departure Date">
+                    </div>
+
                 </div>
-                <div class="form-group">
-                    <label for="Mail">Mail</label>
-                    <input type="text" class="form-control" id="Mail" oninput="validate()" />
-                    <div class="text-danger" id="feilMail"></div>
-                </div>
-                <div class="form-group">
-                    <label for="Adresse">Adresse</label>
-                    <input type="text" class="form-control" id="Adresse" oninput="validate()" />
-                    <div class="text-danger" id="feilAdresse"></div>
-                </div>
-                <div class="form-group">
-                    <label for="Postnr">Postnr</label>
-                    <input type="text" class="form-control" id="Postnr" oninput="validate()" />
-                    <div class="text-danger" id="feilPostnr"></div>
-                </div>
-                <div class="form-group">
-                    <label for="Poststed">Poststed</label>
-                    <input type="text" class="form-control" id="Postnr" oninput="validate()" />
-                    <div class="text-danger" id="feilPostnr"></div>
-                </div>
-            </form>
+                    <div class="form-group">
+                        <label for="Mail">Mail</label>
+                        <input type="text" class="form-control" id="Mail" oninput="validate()" />
+                        <div class="text-danger" id="feilMail"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Adresse">Adresse</label>
+                        <input type="text" class="form-control" id="Adresse" oninput="validate()" />
+                        <div class="text-danger" id="feilAdresse"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Postnr">Postnr</label>
+                        <input type="text" class="form-control" id="Postnr" oninput="validate()" />
+                        <div class="text-danger" id="feilPostnr"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Poststed">Poststed</label>
+                        <input type="text" class="form-control" id="Postnr" oninput="validate()" />
+                        <div class="text-danger" id="feilPostnr"></div>
+                    </div>
+</form>
             <button type="button" class="btn btn-primary" onclick="bestill()">Bestill</button>
         </div>
     </div>
