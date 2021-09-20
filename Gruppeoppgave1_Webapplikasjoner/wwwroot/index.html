@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <script src="js/index.js"></script>
+    <script src="js/validering.js"></script>
 
     <title>Bestilling av båtturer</title>
 </head>
@@ -40,11 +41,11 @@
                     <i class="fa fa-ship fa-2x" aria-hidden="true"></i>
                     <select id="reiserute" style="background-color: rgb(43, 36, 36);">
                         <option value="">Velg rute</option>
-                        <option value="">Oslo --> Kiel</option>
-                        <option value="">Oslo --> Hirtshals</option>
-                        <option value="">Oslo --> København</option>
-                        <option value="">Oslo --> Helsinki</option>
-                        <option value="">Oslo --> Stockholm</option>
+                        <option value="Oslo --> Kiel">Oslo --> Kiel</option>
+                        <option value="Oslo --> Hirtshals">Oslo --> Hirtshals</option>
+                        <option value="Oslo --> København">Oslo --> København</option>
+                        <option value="Oslo --> Helsinki">Oslo --> Helsinki</option>
+                        <option value="Oslo --> Stockholm">Oslo --> Stockholm</option>
 
                     </select>
                 </div>
@@ -53,32 +54,32 @@
 
                     <div id="content">
                         <i class="fa fa-user fa-lg" aria-hidden="true"></i> <!-- Bruker aria-hidden for å gjøre det accessible (screen readers leser ikke ikonene) -->
-                        <input type="text" id="input-group" oninput="validate()" placeholder="Fornavn">
-                        <div class="text-danger" id="feilNavn"></div>
+                        <input type="text" id="fornavn" oninput="validerFornavn(this.value)" placeholder="Fornavn">
+                        <div class="text-danger" id="feilFornavn"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="input-group" oninput="validate()" placeholder="Telefonnr.">
+                        <input type="text" id="telefon" oninput="validerTlf(this.value)" placeholder="Telefonnr.">
                         <div class="text-danger" id="feilTlf"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="input-group" oninput="validate()" placeholder="Reisedato">
+                        <input type="text" id="reiseDato" oninput="validerDato(this.value)" placeholder="Reisedato">
                         <div class="text-danger" id="feilDato"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-users fa-lg" aria-hidden="true"></i>
-                        <select id="input-group" style="background-color: rgb(43, 36, 36);">
+                        <select id="antallVoksne" style="background-color: rgb(43, 36, 36);">
                             <option value="">Antall voksne</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
 
@@ -89,32 +90,32 @@
 
                     <div id="content">
                         <i class="fa fa-user fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="input-group" oninput="validate()" placeholder="Etternavn">
+                        <input type="text" id="etternavn" oninput="validerEtternavn(this.value)" placeholder="Etternavn">
                         <div class="text-danger" id="feilEtternavn"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="input-group" oninput="validate()" placeholder="E-post">
+                        <input type="text" id="e-post" oninput="validerEpost(this.value)" placeholder="E-post">
                         <div class="text-danger" id="feilEpost"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-home fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="input-group" oninput="validate()" placeholder="Adresse">
+                        <input type="text" id="adresse" oninput="validerAdresse(this.value)" placeholder="Adresse">
                         <div class="text-danger" id="feilAdresse"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-users fa-lg" aria-hidden="true"></i>
-                        <select id="input-group" style="background-color: rgb(43, 36, 36);">
+                        <select id="antallBarn" style="background-color: rgb(43, 36, 36);">
                             <option value="">Antall barn</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
                     </div>
 
@@ -127,7 +128,7 @@
                     </div>
                 </div>
 
-                <button type="submit" value="Submit" id="submit-btn">Bestill</button>
+                <button type="submit" value="Submit" onclick="validerOgLagreBillett(this.value)" id="submit-btn">Bestill</button>
 
             </div>
         </form>
