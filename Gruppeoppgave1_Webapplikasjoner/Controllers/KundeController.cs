@@ -8,4 +8,4 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
     {
        //sjekke om det funker å pushe 
     }
-} 
+}

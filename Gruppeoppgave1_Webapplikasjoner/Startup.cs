@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gruppeoppgave1_Webapplikasjoner.Models;
+using Microsoft.Extensions.EntityFrameworkCore;
 
 namespace Gruppeoppgave1_Webapplikasjoner
 {
@@ -17,6 +19,8 @@ namespace Gruppeoppgave1_Webapplikasjoner
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<KundeDb>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlit("Data source = Kunde.db"));
+            //Denne også ser man jo er feil farge kontra den metoden over
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
