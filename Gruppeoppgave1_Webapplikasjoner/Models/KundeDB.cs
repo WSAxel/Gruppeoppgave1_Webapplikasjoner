@@ -10,9 +10,9 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
                 //Her skal "DbContext" bli samme farge som "KundeDB"
     {
         public KundeDB (DbContextOptions<KundeDB> options) : base(options)
-            //"DbContextOptions" skal også endre farge egentlig
+            //"DbContextOptions" skal ogs? endre farge egentlig
         {
-            Database.Ensure.Created();
+            Database.EnsureCreated();
         } //Hele denne skal endre farger
 
         public DbSet<Kunde> Kunder { get; set; }
