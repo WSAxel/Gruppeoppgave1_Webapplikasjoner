@@ -1,0 +1,22 @@
+﻿body {
+    background-position: center;
+    background-size: auto;
+}
+
+#topnav {
+    background-color: rgb(43, 36, 36);
+    /* opacity: 0.6;*/
+}
+
+#logo {
+    height: 100px;
+    width: 100px;
+}
+
+.fa {
+    display: inline-block;
+    color: red;
+    border-right: 1px solid #fff;
+    padding: 8px;
+    margin-left: 6px;
+}
