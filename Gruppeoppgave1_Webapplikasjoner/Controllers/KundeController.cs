@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Gruppeoppgave1_Webapplikasjoner.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gruppeoppgave1_Webapplikasjoner.Controllers
@@ -19,5 +21,22 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             List<Kunde> alleKundene = _kundeDB.Kunder.ToList();
             return alleKundene;
         }
+
+        public bool Lagre(Kunde innKunde)
+        {
+            try
+            {
+                _kundeDB.Kunder.Add(innKunde);
+                _kundeDB.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+           
+            
+        }
+        
     }
 }
