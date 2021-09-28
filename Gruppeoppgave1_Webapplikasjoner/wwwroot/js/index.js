@@ -10,11 +10,6 @@
     }
 }
 
-
-
-
-
-
 function lagreBestilling() {
     const billett = {
         rute: $("#reiserute").val(),
@@ -27,4 +22,12 @@ function lagreBestilling() {
         adresse: $("#adresse").val(),
         antallBarn: $("#antallBarn").val()
     }
-}
+    const url = "Billett/Lagre";
+    $.post(url, billett, function () {
+        window.location.href = "index.html"
+        console.log("fungerer, info lagres");
+    })
+        .fail(function () {
+            alert("Feil i server, prøv igjen senere");
+        });
+};
