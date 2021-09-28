@@ -22,12 +22,17 @@ function lagreBestilling() {
         adresse: $("#adresse").val(),
         antallBarn: $("#antallBarn").val()
     }
-    const url = "Billett/Lagre";
-    $.post(url, billett, function () {
-        window.location.href = "index.html"
-        console.log("fungerer, info lagres");
+    const url = "Kunde/Lagre";
+    $.post(url, billett, function (OK) {
+        if (OK) {
+            //window.location.href = "index.html"
+            console.log("fungerer, info lagres");
+        }
+        else {
+            alert("Feil i db, prøv igjen senere");
+        }
     })
         .fail(function () {
-            alert("Feil i server, prøv igjen senere");
-        });
+            alert("Vil ikke kjøre post");
+        }); 
 };
