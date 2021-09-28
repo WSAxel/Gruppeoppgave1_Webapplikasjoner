@@ -11,6 +11,10 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public string Adresse { get; set; }
         public string Postnr { get; set; }
         public string Poststed { get; set; }
+
+        public int AntallBarn { get; set; }
+        public int AntallVoksne { get; set; }
+        public string Avreise { get; set; }
     } 
 }
 

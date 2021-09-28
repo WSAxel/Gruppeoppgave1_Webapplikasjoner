@@ -1,6 +1,7 @@
 using Gruppeoppgave1_Webapplikasjoner.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -13,7 +14,8 @@ namespace Gruppeoppgave1_Webapplikasjoner
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<KundeDB>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlit("Data source = Kunde.db"));
+            services.AddDbContext<KundeDB>(options => options.UseSqlite("Data source = Kunde.db"));
+                //(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlite("Data source = Kunde.db"));
             //Denne ogs? ser man jo er feil farge kontra den metoden over
         }
 
