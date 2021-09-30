@@ -22,7 +22,7 @@ function lagreBestilling() {
         adresse: $("#adresse").val(),
         antallBarn: $("#antallBarn").val()
     }
-    const url = "Billett/SettInn";
+    const url = "Kunde/SettInn";
     $.post(url, billett, function (OK) {
         if (OK) {
             //window.location.href = "index.html"
