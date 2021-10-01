@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Gruppeoppgave1_Webapplikasjoner.Models;
@@ -8,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gruppeoppgave1_Webapplikasjoner.Models
 {
-    public class Kunde
+    public class Kunder
     {
         [Key]
         public int KId { get; set; }
@@ -20,17 +21,19 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public string Telefonnr { get; set; }
         public string Mail { get; set; }
 
-        public virtual List<Bestilling> Bestillinger { get; set; }
+      virtual public Bestillinger Bestilling { get; set; }
 
     }
 
-    public class Bestilling
+    public class Bestillinger
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] //denne sørger for at tabellen ikke gir autoincrement id
         public int BId { get; set; }
         public int AntallBarn { get; set; }
         public int AntallVoksne { get; set; }
         public string Avreise { get; set; }
+        public string Rute { get; set; }
     }
 
 }
@@ -43,8 +46,9 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
             Database.EnsureCreated();
         } 
 
-    public DbSet<Kunde> Kunder { get; set; }
-    public DbSet<Bestilling> Bestillinger { get; set; }
+    public DbSet<Kunder> Kunder { get; set; }
+    public DbSet<Bestillinger> Bestillinger { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
