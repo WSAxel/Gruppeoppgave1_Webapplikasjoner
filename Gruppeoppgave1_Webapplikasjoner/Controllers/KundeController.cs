@@ -40,7 +40,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
 
                 nyKundeRad.Bestilling = nyBestillingsrad;
 
-                var sjekkPoststed = _kundeDB.Poststeder.Find(bestiltBillett.Postnr);
+                var sjekkPoststed = await _kundeDB.Poststeder.FindAsync(bestiltBillett.Postnr);
                 if(sjekkPoststed == null)
                 {
                     var nyPoststedsRad = new Poststeder();
