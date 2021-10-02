@@ -27,7 +27,7 @@ function lagreBestilling() {
     const url = "Kunde/SettInn";
     $.post(url, billett, function (OK) {
         if (OK) {
-            window.location.href = "billett.html"
+            window.location.href = "betal.html";
             console.log("fungerer, info lagres");
         }
         else {
