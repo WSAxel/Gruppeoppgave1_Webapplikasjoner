@@ -121,13 +121,13 @@
 
                     <div id="content">
                         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="Poststed" oninput="" placeholder="Poststed">
-                        <div class="text-danger" id="feilEpost"></div>
+                        <input type="text" id="poststed" oninput="" placeholder="Poststed">
+                        <div class="text-danger" id="feilPoststed"></div>
                     </div>
                     <div id="content">
                         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="Telefonnr" oninput="" placeholder="Telefonnr">
-                        <div class="text-danger" id="feilEpost"></div>
+                        <input type="text" id="postnr" oninput="" placeholder="Postnr">
+                        <div class="text-danger" id="feilPostnr"></div>
                     </div>
                 </div>
                 <div class="checkbox">
@@ -138,7 +138,7 @@
                     </div>
                 </div>
 
-                <button type="submit" value="Submit" onclick="validerOgLagreBillett(this.value)" id="submit-btn">Bestill</button>
+                <button type="button" onclick="validerOgLagreBillett(this.value)" id="submit-btn">Bestill</button>
 
             </div>
         </form>

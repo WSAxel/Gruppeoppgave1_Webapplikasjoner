@@ -16,12 +16,11 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public string Fornavn { get; set; }
         public string Etternavn { get; set; }
         public string Adresse { get; set; }
-        public string Postnr { get; set; }
-        public string Poststed { get; set; }
         public string Telefonnr { get; set; }
         public string Mail { get; set; }
 
-      virtual public Bestillinger Bestilling { get; set; }
+        virtual public Bestillinger Bestilling { get; set; }
+        virtual public Poststeder Poststed { get; set; }
 
     }
 
@@ -29,29 +28,39 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)] //denne sørger for at tabellen ikke gir autoincrement id
-        public int BId { get; set; }
+       // public int BId { get; set; }
         public int AntallBarn { get; set; }
         public int AntallVoksne { get; set; }
         public string Avreise { get; set; }
         public string Rute { get; set; }
     }
 
-}
-    public class KundeDB : DbContext 
-                
+    public class Poststeder
     {
-        public KundeDB (DbContextOptions<KundeDB> options) : base(options)
-            
-        {
-            Database.EnsureCreated();
-        } 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public string Postnr { get; set; }
+        public string Poststed { get; set; }
+
+    }
+}
+
+public class KundeDB : DbContext 
+                
+{
+    public KundeDB (DbContextOptions<KundeDB> options) : base(options)
+    {
+        Database.EnsureCreated();
+    }
+
 
     public DbSet<Kunder> Kunder { get; set; }
     public DbSet<Bestillinger> Bestillinger { get; set; }
+    public DbSet<Poststeder> Poststeder { get; set; }
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseLazyLoadingProxies();
     }
-}
+}   

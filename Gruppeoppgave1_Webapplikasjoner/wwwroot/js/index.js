@@ -20,19 +20,19 @@ function lagreBestilling() {
         etternavn: $("#etternavn").val(),
         epost: $("#e-post").val(),
         adresse: $("#adresse").val(),
-        antallBarn: $("#antallBarn").val()
+        antallBarn: $("#antallBarn").val(),
+        postnr: $("#postnr").val(),
+        poststed: $("#poststed").val()
     }
     const url = "Kunde/SettInn";
     $.post(url, billett, function (OK) {
         if (OK) {
-            //window.location.href = "index.html"
+            window.location.href = "index.html"
             console.log("fungerer, info lagres");
         }
         else {
             alert("Feil i db, prøv igjen senere");
         }
-    })
-        .fail(function () {
-            alert("Vil ikke kjøre post");
-        }); 
+    });
+       
 };

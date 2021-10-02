@@ -29,8 +29,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
                 nyKundeRad.Adresse = bestiltBillett.Adresse;
                 nyKundeRad.Telefonnr = bestiltBillett.Telefonnr;
                 nyKundeRad.Mail = bestiltBillett.Mail;
-                nyKundeRad.Postnr = bestiltBillett.Postnr;
-                nyKundeRad.Poststed = bestiltBillett.Poststed;
+               // nyKundeRad.Postnr = bestiltBillett.Postnr;
+               // nyKundeRad.Poststed = bestiltBillett.Poststed;
 
                 var nyBestillingsrad = new Bestillinger();
                 nyBestillingsrad.AntallBarn = bestiltBillett.AntallBarn;
@@ -39,6 +39,20 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
                 nyBestillingsrad.Rute = bestiltBillett.Rute;
 
                 nyKundeRad.Bestilling = nyBestillingsrad;
+
+                var sjekkPoststed = _kundeDB.Poststeder.Find(bestiltBillett.Postnr);
+                if(sjekkPoststed == null)
+                {
+                    var nyPoststedsRad = new Poststeder();
+                    nyPoststedsRad.Postnr = bestiltBillett.Postnr;
+                    nyPoststedsRad.Poststed = bestiltBillett.Poststed;
+                    nyKundeRad.Poststed = nyPoststedsRad;
+
+                }
+                else
+                {
+                    nyKundeRad.Poststed = sjekkPoststed;
+                }
 
                 _kundeDB.Kunder.Add(nyKundeRad);
                 await _kundeDB.SaveChangesAsync();
@@ -100,8 +114,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
                     Adresse = k.Adresse,
                     Telefonnr = k.Telefonnr,
                     Mail = k.Mail,
-                    Postnr = k.Postnr,
-                    Poststed = k.Poststed,
+                    Postnr = k.Poststed.Postnr,
+                    Poststed = k.Poststed.Poststed,
                     AntallBarn = k.Bestilling.AntallBarn,
                     AntallVoksne = k.Bestilling.AntallVoksne,
                     Avreise = k.Bestilling.Avreise,
@@ -160,8 +174,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
                     Adresse = enKunde.Adresse,
                     Telefonnr = enKunde.Telefonnr,
                     Mail = enKunde.Mail,
-                    Postnr = enKunde.Postnr,
-                    Poststed = enKunde.Poststed,
+                    Postnr = enKunde.Poststed.Postnr,
+                    Poststed = enKunde.Poststed.Poststed,
                     AntallBarn = enKunde.Bestilling.AntallBarn,
                     AntallVoksne = enKunde.Bestilling.AntallVoksne,
                     Avreise = enKunde.Bestilling.Avreise,
