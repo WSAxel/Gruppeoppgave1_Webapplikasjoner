@@ -24,14 +24,14 @@ function validerTlf(telefon) {
     }
 }
 function validerDato(reiseDato) {
-    const regexp = /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([1][26]|[2468][048]|[3579][26])00))))$/g;
+    const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
     const ok = regexp.test(reiseDato);
     if (!ok) {
-        $("#feilDato").html("Dato er feil prøv med DD/MM/YYYY eller DD-MM-YYYY");
+        $("#feilDato").html("Dato er feil prøv med DD/MM/YYYY");
         return true;
     }
     else {
-        $("feilDato").html("");
+        $("feilDato").html(""); 
         return true;
     }
 }
@@ -68,6 +68,30 @@ function validerAdresse(adresse) {
     }
     else {
         $("#feilAdresse").html("");
+        return true;
+    }
+}
+function validerPoststed(poststed) {
+    var regexp = /^ [A - Za - zÆØÅæøå\\s] + $/;
+    var ok = regexp.test(poststed);
+    if (!ok) {
+        $("#feilPoststed").html("Poststed er feil");
+        return true;
+    }
+    else {
+        $("#feilPoststed").html("");
+        return true;
+    }
+}
+function validerPostnr(postnr) {
+    var regexp = /^\\d{ 4}$/;
+    var ok = regexp.test(postnr);
+    if (!ok) {
+        $("#feilPostnr").html("Postnr er feil, må være 4 tegn");
+        return true;
+    }
+    else {
+        $("#feilPostnr").html("");
         return true;
     }
 }
