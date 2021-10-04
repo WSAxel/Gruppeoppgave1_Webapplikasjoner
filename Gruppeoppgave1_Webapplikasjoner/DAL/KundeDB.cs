@@ -27,8 +27,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
     public class Bestillinger
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)] //denne sørger for at tabellen ikke gir autoincrement id
-       // public int BId { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)] //denne sørger for at tabellen ikke gir autoincrement id
+        public int BId { get; set; }
         public int AntallBarn { get; set; }
         public int AntallVoksne { get; set; }
         public string Avreise { get; set; }
