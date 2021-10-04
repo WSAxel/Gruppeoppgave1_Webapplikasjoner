@@ -57,7 +57,7 @@ body {
     }
 
 ::placeholder {
-    color: #fff;
+    color: black;
 }
 
 .fa {
