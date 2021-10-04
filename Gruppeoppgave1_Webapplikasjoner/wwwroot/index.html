@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav text-right text-white ml-auto">
-                        <img src="logo.png"  id="logo"/>
+                        <a href="index.html"><img src="css/logo.png" id="logo" /></a>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="reiser.html">Reiser</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="kundeservice.html">Kundeservice</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="priser.html">Priser</a></li>
@@ -69,6 +69,11 @@
                         <input type="text" id="reiseDato" oninput="validerDato(this.value)" placeholder="Reisedato">
                         <div class="text-danger" id="feilDato"></div>
                     </div>
+                    <div id="content">
+                        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="postnr" oninput="validerPostnr(this.value)" placeholder="Postnr">
+                        <div class="text-danger" id="feilPostnr"></div>
+                    </div>
 
                     <div id="content">
                         <i class="fa fa-users fa-lg" aria-hidden="true"></i>
@@ -107,6 +112,12 @@
                     </div>
 
                     <div id="content">
+                        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="poststed" oninput="validerPoststed(this.value)" placeholder="Poststed">
+                        <div class="text-danger" id="feilPoststed"></div>
+                    </div>
+
+                    <div id="content">
                         <i class="fa fa-users fa-lg" aria-hidden="true"></i>
                         <select id="antallBarn" style="background-color: rgb(255, 255, 255);">
                             <option value="">Antall barn</option>
@@ -119,16 +130,8 @@
                         </select>
                     </div>
 
-                    <div id="content">
-                        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="poststed" oninput="validerPoststed(this.value)" placeholder="Poststed">
-                        <div class="text-danger" id="feilPoststed"></div>
-                    </div>
-                    <div id="content">
-                        <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="postnr" oninput="validerPostnr(this.value)" placeholder="Postnr">
-                        <div class="text-danger" id="feilPostnr"></div>
-                    </div>
+
+
                 </div>
                 <div class="checkbox">
                     <div class="text-light">
