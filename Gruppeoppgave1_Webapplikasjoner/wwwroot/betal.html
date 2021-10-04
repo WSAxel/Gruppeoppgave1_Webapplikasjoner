@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="js/betal.js"></script>
+    <script src="js/validering.js"></script>
 
     <title></title>
 </head>
@@ -17,22 +19,26 @@
             <div class="form-group">
                 <label>Kortnummer</label>
                 <input type="text" id="kortnummer" />
+                <div class="text-danger" id="feilKortnummer"></div>
             </div>
             <div class="form-group">
                 <label>Navn på kort</label>
                 <input type="text" id="kortNavn" />
+                <div class="text-danger" id="feilKortNavn"></div>
             </div>
             <div class="form-group">
                 <label>cvv2</label>
                 <input type="text" id="cvv2" />
+                <div class="text-danger" id="feilCcv2"></div>
             </div>
             <div class="form-group">
                 <label>Utløpsdato</label>
                 <input type="text" id="utløpsDato" />
+                <div class="text-danger" id="feilUtløpsDato"></div>
             </div>
             <div class="form-group">
                 <label>Kjøp</label>
-                <input type="button" id="kjop" onclick="lagre()" class="btn btn-primary" />
+                <input type="button" id="kjop" onclick="validerOgKjøp()" class="btn btn-primary" />
             </div>
         </form>
     </div>

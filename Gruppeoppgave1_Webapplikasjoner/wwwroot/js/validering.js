@@ -95,3 +95,53 @@ function validerPostnr(postnr) {
         return true;
     }
 }
+function validerKortnummer(kortnummer) {
+    //denne regexen er for Visa
+    var regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    var ok = regexp.test(kortnummer);
+    if (!ok) {
+        $("#feilKortnummer").html("Kortnummer er feil");
+        return true;
+    }
+    else {
+        $("#feilKortnummer").html("");
+        return true;
+    }
+}
+function validerKortnavn(kortNavn) {
+    //Bare lagt til regex for å sjekke navn, sjekkes ikke mot det bruker skrev på forrige side.
+    var regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
+    var ok = regexp.test(kortNavn);
+    if (!ok) {
+        $("#feilKortNavn").html("Navnet på kortet er feil");
+        return true;
+    }
+    else {
+        $("#feilKortNavn").html("");
+        return true;
+    }
+}
+function validerCcv2(ccv2) {
+    var regexp = /^[0-9]{2,4}$/;
+    var ok = regexp.test(ccv2);
+    if (!ok) {
+        $("#feilCcv2").html("ccv2 er feil, prøv igjen");
+        return true;
+    }
+    else {
+        $("#feilCcv2").html("");
+        return true;
+    }
+}
+function validerUtløpsDato(utløpsDato) {
+    var regexp = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+    var ok = regexp.test(utløpsDato);
+    if (!ok) {
+        $("#feilUtløpsDato").html("Utløpsdato er feil, prøv igjen");
+        return true;
+    }
+    else {
+        $("#feilUtløpsDato").html("");
+        return true;
+    }
+}
