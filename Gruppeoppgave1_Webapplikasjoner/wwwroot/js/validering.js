@@ -1,10 +1,11 @@
 ﻿//ALLE REGEXENE MÅ TESTES.
+
 function validerFornavn(fornavn) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
     const ok = regexp.test(fornavn);
     if (!ok) {
         $("#feilFornavn").html("Fornavnet må bestå av 2 til 20 bokstaver");
-        return true;
+        return false;
     }
     else {
         $("#feilFornavn").html("");
@@ -16,7 +17,7 @@ function validerTlf(telefon) {
     const ok = regexp.test(telefon);
     if (!ok) {
         $("#feilTlf").html("Nummeret for telefon er feil, landskode må være med");
-        return true;
+        return false;
     }
     else {
         $("#feilTlf").html("");
@@ -24,11 +25,13 @@ function validerTlf(telefon) {
     }
 }
 function validerDato(reiseDato) {
-    const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+   // const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+    // const regexp = ^(0[1-9]|[12][0-9]|3[01])[-/.];
+    const regexp = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
     const ok = regexp.test(reiseDato);
     if (!ok) {
         $("#feilDato").html("Dato er feil prøv med DD/MM/YYYY");
-        return true;
+        return false;
     }
     else {
         $("feilDato").html(""); 
@@ -40,7 +43,7 @@ function validerEtternavn(etternavn) {
     const ok = regexp.test(etternavn);
     if (!ok) {
         $("#feilEtternavn").html("Etternavnet må bestå av 2 til 20 bokstaver");
-        return true;
+        return false;
     }
     else {
         $("#feilEtternavn").html("");
@@ -52,7 +55,7 @@ function validerEpost(epost) {
     const ok = regexp.test(epost);
     if (!ok) {
         $("#feilEpost").html("E-post er feil, prøv igjen.")
-        return true;
+        return false;
     }
     else {
         $("#feilEpost").html("");
@@ -60,8 +63,8 @@ function validerEpost(epost) {
     }
 }
 function validerAdresse(adresse) {
-    var regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
-    var ok = regexp.test(adresse);
+    const regexp = /^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$/;
+    const ok = regexp.test(adresse);
     if (!ok) {
         $("#feilAdresse").html("Adressen må bestå av 2 til 50 bokstaver og tall");
         return false;
@@ -72,11 +75,12 @@ function validerAdresse(adresse) {
     }
 }
 function validerPoststed(poststed) {
-    var regexp = /^ [A - Za - zÆØÅæøå\\s] + $/;
-    var ok = regexp.test(poststed);
+    const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
+    //const regexp = /^[A - Za - zÆØÅæøå]{2,30}$/;
+    const ok = regexp.test(poststed);
     if (!ok) {
         $("#feilPoststed").html("Poststed er feil");
-        return true;
+        return false;
     }
     else {
         $("#feilPoststed").html("");
@@ -84,11 +88,11 @@ function validerPoststed(poststed) {
     }
 }
 function validerPostnr(postnr) {
-    var regexp = /^\\d{ 4}$/;
-    var ok = regexp.test(postnr);
+    const regexp = /^\d{4}$/;
+    const ok = regexp.test(postnr);
     if (!ok) {
         $("#feilPostnr").html("Postnr er feil, må være 4 tegn");
-        return true;
+        return false;
     }
     else {
         $("#feilPostnr").html("");
@@ -97,11 +101,11 @@ function validerPostnr(postnr) {
 }
 function validerKortnummer(kortnummer) {
     //denne regexen er for Visa
-    var regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-    var ok = regexp.test(kortnummer);
+    const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    const ok = regexp.test(kortnummer);
     if (!ok) {
         $("#feilKortnummer").html("Kortnummer er feil");
-        return true;
+        return false;
     }
     else {
         $("#feilKortnummer").html("");
@@ -110,11 +114,11 @@ function validerKortnummer(kortnummer) {
 }
 function validerKortnavn(kortNavn) {
     //Bare lagt til regex for å sjekke navn, sjekkes ikke mot det bruker skrev på forrige side.
-    var regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
-    var ok = regexp.test(kortNavn);
+    const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
+    const ok = regexp.test(kortNavn);
     if (!ok) {
         $("#feilKortNavn").html("Navnet på kortet er feil");
-        return true;
+        return false;
     }
     else {
         $("#feilKortNavn").html("");
@@ -122,11 +126,11 @@ function validerKortnavn(kortNavn) {
     }
 }
 function validerCcv2(ccv2) {
-    var regexp = /^[0-9]{2,4}$/;
-    var ok = regexp.test(ccv2);
+    const regexp = /^[0-9]{2,4}$/;
+    const ok = regexp.test(ccv2);
     if (!ok) {
         $("#feilCcv2").html("ccv2 er feil, prøv igjen");
-        return true;
+        return false;
     }
     else {
         $("#feilCcv2").html("");
@@ -134,11 +138,11 @@ function validerCcv2(ccv2) {
     }
 }
 function validerUtløpsDato(utløpsDato) {
-    var regexp = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
-    var ok = regexp.test(utløpsDato);
+    const regexp = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
+    const ok = regexp.test(utløpsDato);
     if (!ok) {
         $("#feilUtløpsDato").html("Utløpsdato er feil, prøv igjen");
-        return true;
+        return false;
     }
     else {
         $("#feilUtløpsDato").html("");

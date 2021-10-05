@@ -37,7 +37,7 @@
         <form class="form-group">
             <div id="form">
                 <h1 class="text-white text-center">Bestill din reise</h1>
-
+                
                 <div id="rute">
                     <i class="fa fa-ship fa-2x" aria-hidden="true"></i>
                     <select id="reiserute" style="background-color: rgb(43, 36, 36);">
@@ -47,32 +47,31 @@
                         <option value="Oslo --> København">Oslo --> København</option>
                         <option value="Oslo --> Helsinki">Oslo --> Helsinki</option>
                         <option value="Oslo --> Stockholm">Oslo --> Stockholm</option>
-
                     </select>
                 </div>
 
                 <div id="first-group">
-
+                    <input type="hidden" id="id" />
                     <div id="content">
                         <i class="fa fa-user fa-lg" aria-hidden="true"></i> <!-- Bruker aria-hidden for å gjøre det accessible (screen readers leser ikke ikonene) -->
-                        <input type="text" id="fornavn" oninput="validerFornavn(this.value)" placeholder="Fornavn">
+                        <input type="text" id="fornavn" onchange="validerFornavn(this.value)" placeholder="Fornavn">
                         <div class="text-danger" id="feilFornavn"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-phone fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="telefon" oninput="validerTlf(this.value)" placeholder="Telefonnr.">
+                        <input type="text" id="telefon" onchange="validerTlf(this.value)" placeholder="Telefonnr.">
                         <div class="text-danger" id="feilTlf"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="reiseDato" oninput="validerDato(this.value)" placeholder="Reisedato">
+                        <input type="text" id="reiseDato" onchange="validerDato(this.value)" placeholder="Reisedato">
                         <div class="text-danger" id="feilDato"></div>
                     </div>
                     <div id="content">
                         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="postnr" oninput="validerPostnr(this.value)" placeholder="Postnr">
+                        <input type="text" id="postnr" onchange="validerPostnr(this.value)" placeholder="Postnr">
                         <div class="text-danger" id="feilPostnr"></div>
                     </div>
 
@@ -96,25 +95,25 @@
 
                     <div id="content">
                         <i class="fa fa-user fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="etternavn" oninput="validerEtternavn(this.value)" placeholder="Etternavn">
+                        <input type="text" id="etternavn" onchange="validerEtternavn(this.value)" placeholder="Etternavn">
                         <div class="text-danger" id="feilEtternavn"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="e-post" oninput="validerEpost(this.value)" placeholder="E-post">
+                        <input type="text" id="e-post" onchange="validerEpost(this.value)" placeholder="E-post">
                         <div class="text-danger" id="feilEpost"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-home fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="adresse" oninput="validerAdresse(this.value)" placeholder="Adresse">
+                        <input type="text" id="adresse" onchange="validerAdresse(this.value)" placeholder="Adresse">
                         <div class="text-danger" id="feilAdresse"></div>
                     </div>
 
                     <div id="content">
                         <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="poststed" oninput="validerPoststed(this.value)" placeholder="Poststed">
+                        <input type="text" id="poststed" onchange="validerPoststed(this.value)" placeholder="Poststed">
                         <div class="text-danger" id="feilPoststed"></div>
                     </div>
 
