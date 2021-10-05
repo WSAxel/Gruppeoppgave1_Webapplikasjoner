@@ -11,7 +11,6 @@
         lagreBestilling();
         document.getElementById("second").style.display = "block";
         document.getElementById("first").style.display = "none";
-
     }
 }
 
@@ -56,13 +55,9 @@ function validerOgKjøp() {
 }
 
 
-
-
-
 function visKvittering() {
     const id = window.location.search.substring(1);
     $.get("Kunde/HentEn?" + id, function (billett) {
-
 
     });
 }
