@@ -9,6 +9,9 @@
     const postnrOK = validerPostnr($("#postnr").val());
     if (fornavnOK && telefonOK && datoOK && etternavnOK && epostOK && adresseOK && poststedOK && postnrOK) {
         lagreBestilling();
+        document.getElementById("second").style.display = "block";
+        document.getElementById("first").style.display = "none";
+
     }
 }
 
@@ -29,7 +32,7 @@ function lagreBestilling() {
     const url = "Kunde/SettInn";
     $.post(url, billett, function (OK) {
         if (OK) {
-            window.location.href = "betal.html";
+         //   window.location.href = "betal.html";
             console.log("fungerer, info lagres");
         }
         else {
@@ -38,3 +41,31 @@ function lagreBestilling() {
     });
        
 };
+
+function validerOgKjøp() {
+    const kortnummerOK = validerKortnummer($("#kortnummer").val());
+    const kortnavnOK = validerKortnavn($("#kortNavn").val());
+   // const ccv2OK = validerCcv2($("#ccv2").val());
+    const utløpsdatoOK = validerUtløpsDato($("#utløpsDato").val());
+    if (kortnummerOK && kortnavnOK && utløpsdatoOK) {
+        visKvittering();
+        document.getElementById("visKvittering").style.display = "block";
+        document.getElementById("second").style.display = "none";
+
+    }
+}
+
+
+
+
+
+function visKvittering() {
+    $.get("Kunde/HentEn/", function (billett) {
+        
+    });
+}
+
+function formaterKunder(billett) {
+   
+    $("#visKvittering").html(ut);
+}

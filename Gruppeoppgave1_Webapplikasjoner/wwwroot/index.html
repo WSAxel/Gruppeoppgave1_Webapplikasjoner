@@ -33,11 +33,11 @@
             </div>
         </nav>
     </div>
-    <div class="container">
+    <div class="container" id="first">
         <form class="form-group">
             <div id="form">
                 <h1 class="text-white text-center">Bestill din reise</h1>
-                
+
                 <div id="rute">
                     <i class="fa fa-ship fa-2x" aria-hidden="true"></i>
                     <select id="reiserute" style="background-color: rgb(43, 36, 36);">
@@ -138,5 +138,36 @@
             </div>
         </form>
     </div>
+    <div class="container" id="second">
+        <h1>Betaling</h1>
+        <form class="form">
+            <div class="form-group">
+                <label>Kortnummer</label>
+                <input type="text" id="kortnummer" />
+                <div class="text-danger" id="feilKortnummer" onchange="validerKortnummer(this.value)"></div>
+            </div>
+            <div class="form-group">
+                <label>Navn på kort</label>
+                <input type="text" id="kortNavn" />
+                <div class="text-danger" id="feilKortNavn" onchange="validerKortnavn(this.value)"></div>
+            </div>
+            <div class="form-group">
+                <label>cvv2</label>
+                <input type="text" id="cvv2" />
+                <div class="text-danger" id="feilCcv2" onchange="validerCcv2(this.value)"></div>
+            </div>
+            <div class="form-group">
+                <label>Utløpsdato</label>
+                <input type="text" id="utløpsDato" />
+                <div class="text-danger" id="feilUtløpsDato" onchange="validerUtløpsDato(this.value)"></div>
+            </div>
+            <div class="form-group">
+                <label>Kjøp</label>
+                <input type="button" id="kjop" onclick="validerOgKjøp()" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="container" id="visKvittering"></div>
 </body>
 </html>

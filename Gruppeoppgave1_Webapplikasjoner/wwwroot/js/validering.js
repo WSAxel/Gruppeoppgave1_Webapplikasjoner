@@ -101,6 +101,7 @@ function validerPostnr(postnr) {
 }
 function validerKortnummer(kortnummer) {
     //denne regexen er for Visa
+
     const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
     const ok = regexp.test(kortnummer);
     if (!ok) {
@@ -114,6 +115,7 @@ function validerKortnummer(kortnummer) {
 }
 function validerKortnavn(kortNavn) {
     //Bare lagt til regex for å sjekke navn, sjekkes ikke mot det bruker skrev på forrige side.
+
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
     const ok = regexp.test(kortNavn);
     if (!ok) {
