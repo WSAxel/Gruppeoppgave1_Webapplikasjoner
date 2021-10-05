@@ -102,7 +102,8 @@ function validerPostnr(postnr) {
 function validerKortnummer(kortnummer) {
     //denne regexen er for Visa
 
-    const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    // denne skal kanskje brukes senere: const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    const regexp = /^[0-9]$/;
     const ok = regexp.test(kortnummer);
     if (!ok) {
         $("#feilKortnummer").html("Kortnummer er feil");
