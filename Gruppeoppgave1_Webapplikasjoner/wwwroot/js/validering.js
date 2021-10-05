@@ -25,7 +25,7 @@ function validerTlf(telefon) {
     }
 }
 function validerDato(reiseDato) {
-   // const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+    // const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
     // const regexp = ^(0[1-9]|[12][0-9]|3[01])[-/.];
     const regexp = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
     const ok = regexp.test(reiseDato);
@@ -34,7 +34,7 @@ function validerDato(reiseDato) {
         return false;
     }
     else {
-        $("feilDato").html(""); 
+        $("feilDato").html("");
         return true;
     }
 }
@@ -102,8 +102,7 @@ function validerPostnr(postnr) {
 function validerKortnummer(kortnummer) {
     //denne regexen er for Visa
 
-    // denne skal kanskje brukes senere: const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-    const regexp = /^[0-9]$/;
+    const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
     const ok = regexp.test(kortnummer);
     if (!ok) {
         $("#feilKortnummer").html("Kortnummer er feil");

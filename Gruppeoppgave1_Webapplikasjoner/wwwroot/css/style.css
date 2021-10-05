@@ -1,6 +1,6 @@
 
 body {
-    background-image: url(css/colorline.jpg);
+    background-image: url(solnedgang.jpg);
     background-position: center;
     background-size: auto;
 }
@@ -22,7 +22,9 @@ body {
     padding: 5px;
     color: whitesmoke ;
 }
-
+#second {
+    display: none;
+}
 #form {
     background-color: whitesmoke;
     height: 400px;
