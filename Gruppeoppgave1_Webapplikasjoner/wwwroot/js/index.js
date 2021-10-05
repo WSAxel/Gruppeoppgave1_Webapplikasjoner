@@ -60,7 +60,9 @@ function validerOgKjøp() {
 
 
 function visKvittering() {
-    $.get("Kunde/HentEn/", function (billett) {
+    const id = window.location.search.substring(1);
+    $.get("Kunde/HentEn?" + id, function (billett) {
+
 
     });
 }
