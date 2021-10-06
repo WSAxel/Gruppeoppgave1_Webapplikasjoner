@@ -26,7 +26,8 @@ function lagreBestilling() {
         adresse: $("#adresse").val(),
         antallBarn: $("#antallBarn").val(),
         postnr: $("#postnr").val(),
-        poststed: $("#poststed").val()
+        poststed: $("#poststed").val(),
+        tid: $("#rutetider").val()
     }
     billettList.push(billett);
     const url = "Kunde/SettInn";
@@ -86,7 +87,7 @@ function formaterKunder(billett) {
             <p> Billett for ${billett.fornavn} ${billett.etternavn}</p><br>
            <p> ${billett.adresse} ${billett.postnr} ${billett.poststed}</p><br>
             <p> Antall Barn som reiser er ${billett.antallBarn} og antall voksne som reiser er ${billett.antallVoksne}</p><br>
-            <p> Reiser til ${billett.rute}, dato: ${billett.avreise}</p><br>
+            <p> Reiser til ${billett.rute}, dato: ${billett.avreise}, tid: ${billett.tid}</p><br>
         </div>
 `)
 

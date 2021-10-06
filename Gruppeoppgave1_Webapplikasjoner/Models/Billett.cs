@@ -16,6 +16,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public int AntallVoksne { get; set; }
         public string Avreise { get; set; }
         public string Rute { get; set; }
+        public string Tid { get; set; }
     } 
 }
 

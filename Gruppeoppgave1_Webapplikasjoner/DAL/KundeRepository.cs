@@ -36,6 +36,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                 nyBestillingsrad.AntallVoksne = bestiltBillett.AntallVoksne;
                 nyBestillingsrad.Avreise = bestiltBillett.Avreise;
                 nyBestillingsrad.Rute = bestiltBillett.Rute;
+                nyBestillingsrad.Tid = bestiltBillett.Tid;
 
                 nyKundeRad.Bestilling = nyBestillingsrad;
 
@@ -118,7 +119,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                     AntallBarn = k.Bestilling.AntallBarn,
                     AntallVoksne = k.Bestilling.AntallVoksne,
                     Avreise = k.Bestilling.Avreise,
-                    Rute = k.Bestilling.Rute
+                    Rute = k.Bestilling.Rute,
+                    Tid = k.Bestilling.Tid
 
                 }).ToListAsync();
 
@@ -178,7 +180,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                     AntallBarn = enKunde.Bestilling.AntallBarn,
                     AntallVoksne = enKunde.Bestilling.AntallVoksne,
                     Avreise = enKunde.Bestilling.Avreise,
-                    Rute = enKunde.Bestilling.Rute
+                    Rute = enKunde.Bestilling.Rute,
+                    Tid = enKunde.Bestilling.Tid
                 };
                 return hentetKunde;
             }
