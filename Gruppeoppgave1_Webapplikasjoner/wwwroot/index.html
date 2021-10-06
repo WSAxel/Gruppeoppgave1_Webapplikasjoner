@@ -52,6 +52,17 @@
                         <option value="Oslo --> Stockholm">Oslo --> Stockholm</option>
                     </select>
                 </div>
+                <div id="tid">
+                    <i class="fa fa-ship fa-2x" aria-hidden="true"></i>
+                    <select id="rutetider" style="background-color: rgb(43, 36, 36);">
+                        <option value="">Velg tid</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="18:00">18:00</option>
+                    </select>
+                </div>
 
                 <div id="first-group">
                     <input type="hidden" id="id" />
@@ -80,7 +91,7 @@
 
                     <div id="content">
                         <i class="fa fa-users fa-lg" aria-hidden="true"></i>
-                        <select id="antallVoksne" style="background-color: rgb(255, 255, 255);">
+                        <select id="antallVoksne" onchange="prisKalkulering()" style="background-color: rgb(255, 255, 255);">
                             <option value="">Antall voksne</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -122,7 +133,7 @@
 
                     <div id="content">
                         <i class="fa fa-users fa-lg" aria-hidden="true"></i>
-                        <select id="antallBarn" style="background-color: rgb(255, 255, 255);">
+                        <select id="antallBarn" onchange="prisKalkulering()" style="background-color: rgb(255, 255, 255);">
                             <option value="">Antall barn</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -133,6 +144,7 @@
                         </select>
                     </div>
 
+                    <div id="pris">Noe</div>
 
 
                 </div>
