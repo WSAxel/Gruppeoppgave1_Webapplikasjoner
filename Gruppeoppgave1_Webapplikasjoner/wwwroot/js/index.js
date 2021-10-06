@@ -1,4 +1,20 @@
-﻿function validerOgLagreBillett() {
+﻿function prisKalkulering() {
+    let antallVoksne = $("#antallVoksne").val();
+    let antallBarn = $("#antallBarn").val();
+    let sumVoksne = antallVoksne * 1000;
+    let sumBarn = antallBarn * 300;
+    let sum = sumVoksne + sumBarn;
+    console.log(sumVoksne + " " + sumBarn + " " + sum);
+    let ut = "<tr>" +
+        "<td>" + "Prisen for alle voksne er " + sumVoksne + "</td>" +
+        "<td>" + "Prisen for alle barn er " + sumBarn + "</td>" +
+        "<td>" + "Full pris blir " + sum + "</td>" +
+        "</tr>";
+
+    $("#pris").html(ut);
+}
+
+function validerOgLagreBillett() {
     const fornavnOK = validerFornavn($("#fornavn").val());
     const telefonOK = validerTlf($("#telefon").val());
     const datoOK = validerDato($("#reiseDato").val());
