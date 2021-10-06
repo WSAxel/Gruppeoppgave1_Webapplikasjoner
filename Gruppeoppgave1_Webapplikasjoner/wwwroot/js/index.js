@@ -48,15 +48,18 @@ function lagreBestilling() {
     billettList.push(billett);
     const url = "Kunde/SettInn";
     $.post(url, billett, function (OK) {
-        if (OK) {
+      /*  if (OK) {*/
             //   window.location.href = "betal.html";
             console.log("fungerer, info lagres");
           
-        }
-        else {
+      //  }
+        /*else {
             alert("Feil i db, prøv igjen senere");
-        }
-    });
+        }*/
+    })
+        .fail(function () {
+            $("#feil").html("OBS noe gikk galt, feil på server - prøv igjen senere");
+        }) ;
 
 };
 
@@ -64,6 +67,7 @@ function validerOgKjøp() {
     const kortnummerOK = validerKortnummer($("#kortnummer").val());
     const kortnavnOK = validerKortnavn($("#kortNavn").val());
     // const ccv2OK = validerCcv2($("#ccv2").val());
+
     const utløpsdatoOK = validerUtløpsDato($("#utløpsDato").val());
     if (kortnummerOK && kortnavnOK && utløpsdatoOK) {
         visKvittering();
