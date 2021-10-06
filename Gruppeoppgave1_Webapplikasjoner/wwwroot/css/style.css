@@ -1,37 +1,33 @@
 
-body {
-    background-image: url(solnedgang.jpg);
-    background-position: center;
-    background-size: auto;
+#forsidebilde {
+    background-repeat: no-repeat;
+    min-width: 172.5%;
+    margin-top: -20px;
+    margin-left: -398px;
+    height: 388px;
+   
 }
 
 
-#topnav {
-    background-color: rgb(43, 36, 36);
-    opacity: 0.6;
-}
-#logo {
-    height:100px;
-    width:100px;
-}
+
 #reiserute {
     width: 600px;
     border: 1px solid #fff;
     margin: 10px;
     margin-left: 8px;
     padding: 5px;
-    color: whitesmoke ;
+    color: black ;
 }
 #second {
     display: none;
 }
 #form {
-    background-color: whitesmoke;
-    height: 400px;
+    background-color: lightgray;
+    height: 440px;
     width: 800px;
     margin: auto;
-    margin-top: 100px;
-    opacity: 0.8;
+    margin-top: 200px;
+    
     border-radius: 25px;
 }
 
@@ -49,6 +45,7 @@ body {
     padding: 5px;
 }
 
+ 
     #content #input-group {
         border: none;
         outline: none;
@@ -68,6 +65,8 @@ body {
     border-right: 1px solid #fff;
     padding: 8px;
     margin-left: 6px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 500;
 }
 
 #second-group {
@@ -80,8 +79,8 @@ body {
 #submit-btn {
     margin-top: 0px;
     margin-left: 600px;
-    background: transparent;
-    color: #fff;
+    background-color: #031F38;
+    color: whitesmoke;
     width: 150px;
     border: 1px solid red;
     outline: none;

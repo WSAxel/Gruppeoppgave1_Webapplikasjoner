@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbarStyle.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
@@ -14,7 +15,7 @@
 </head>
 <body>
     <div id="topnav">
-        <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark">
+        <nav class="navbar navbar-expand-md fixed-top ">
             <div class="container-fluid">
                 <a href="index.html"><img src="css/logo.png" id="logo" /></a>
                 <div class="collapse navbar-collapse" id="navcol-1">
@@ -26,7 +27,8 @@
                     </ul>
                     <ul class="nav navbar-right ml-auto">
                         <li class="nav-item" role="presentation"></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-user fa-2x"></i></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-user fa-2x">
+                            <h5 class="text-center">  Min Side</h5></i></a></li>
                         <li class="nav-item" role="presentation"></li>
                     </ul>
                 </div>
@@ -34,13 +36,14 @@
         </nav>
     </div>
     <div class="container" id="first">
+        <img id="forsidebilde" src="css/forsidebilde.png" />
         <form class="form-group">
             <div id="form">
-                <h1 class="text-white text-center">Bestill din reise</h1>
+                <h1 class="text-center">Bestill din reise</h1>
 
                 <div id="rute">
                     <i class="fa fa-ship fa-2x" aria-hidden="true"></i>
-                    <select id="reiserute" style="background-color: rgb(43, 36, 36);">
+                    <select id="reiserute" style="background-color: rgb(255 255 255);">
                         <option value="">Velg rute</option>
                         <option value="Oslo --> Kiel">Oslo --> Kiel</option>
                         <option value="Oslo --> Hirtshals">Oslo --> Hirtshals</option>

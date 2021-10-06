@@ -1,17 +1,16 @@
-﻿body {
-    background-position: center;
-    background-size: auto;
-}
-
-#topnav {
-    background-color: rgb(43, 36, 36);
-    /* opacity: 0.6;*/
+﻿#topnav {
+    background-color: #031F38;
+  
 }
 
 #logo {
-    height: 100px;
-    width: 100px;
+    height: 125px;
+    width: 125px;
 }
+.navbar {
+    max-height: 70px;
+} 
+
 
 .fa {
     display: inline-block;
@@ -19,4 +18,13 @@
     border-right: 1px solid #fff;
     padding: 8px;
     margin-left: 6px;
+    font-size: 20px;
+}
+
+.nav-item {
+    padding-right: 3.5rem;
+    padding-left: 3.5rem;
+    font-size: 24px;
+    line-height: 10px;
+    padding-top: 5rem;
 }
