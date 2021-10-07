@@ -18,7 +18,7 @@ function validerTlf(telefon) {
     const regexp = /^[0-9]{8}$/;
     const ok = regexp.test(telefon);
     if (!ok) {
-        $("#feilTlf").html("Nummeret for telefon er feil, landskode må være med");
+        $("#feilTlf").html("Telefonnumemr er feil, må inneholdet 8 siffer - prøv igjen ");
         return false;
     }
     else {
@@ -107,13 +107,20 @@ function validerKortnummer(kortnummer) {
     //denne regexen er for Visa
 
     const regexp = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+    const regexp1 = /^(?:5[1-5][0-9]{14})$/;
     const ok = regexp.test(kortnummer);
-    if (!ok) {
-        $("#feilKortnummer").html("Kortnummer er feil");
-        return false;
+    const okM = regexp1.test(kortnummer);
+    if (ok) {
+        $("#feilKortnummer").html("");
+        return true;
+    }
+    else if (okM){
+        $("#feilKortnummer").html("");
+        return true;
     }
     else {
-        $("#feilKortnummer").html("");
+        $("#feilKortnummer").html("Kortnummer er feil");
+        
         return true;
     }
 }
