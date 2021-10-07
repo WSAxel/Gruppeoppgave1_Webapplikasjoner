@@ -114,8 +114,13 @@
     margin-left: 11px;
 }
 .visBillett {
-    width: 400px;
+    width: auto;
     background-color: aliceblue;
     border-radius: 15px;
-    padding-left: 12px;
+    padding-left: 25px;
+    font-size: 18px;
+    height: 425px;
+    line-height: 30px;
+    padding-top: 20px;
 }
+

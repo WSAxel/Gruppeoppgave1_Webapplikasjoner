@@ -84,12 +84,18 @@ function formaterKunder(billett) {
 
     return $(`
         <div class="visBillett">
-            <h1> Her er billetten:</h1>
-            <p> Billett for: ${billett.fornavn} ${billett.etternavn}</p><br>
-           <p> ${billett.adresse}, ${billett.postnr} ${billett.poststed}</p><br>
-            <p> Antall Barn som reiser er ${billett.antallBarn} og antall voksne som reiser er ${billett.antallVoksne}</p><br>
-            <p> Reiser til ${billett.rute}, dato: ${billett.avreise}, tid: ${billett.tid}</p><br>
-<p> Totalpris ${sum} kr </p>
+            <h1> Takk for bestilling! Nedenfor finner du billett info:</h1>
+            <p> Navn:  ${billett.fornavn} ${billett.etternavn}<br>
+             Adresse: ${billett.adresse}, ${billett.postnr} ${billett.poststed}<br>
+            Telefonnr: ${billett.telefonnr}<br>
+            E-Mail: ${billett.mail}<br>
+            Antall voksne: ${billett.antallVoksne}<br>
+            Antall Barn: ${billett.antallBarn}<br>
+            Reiser til: ${billett.rute} <br>
+            dato, tid:  ${billett.avreise}, ${billett.tid}<br>
+            <div class="tPris">Totalpris: ${sum} kr</div> </p>
+
+            <h5> Ha en fin tur :) </h5>
         </div>
 `)
 
