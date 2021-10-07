@@ -23,7 +23,7 @@
 }
 #form {
     background-color: lightgray;
-    height: 440px;
+    height: 540px;
     width: 800px;
     margin: auto;
     margin-top: 200px;
@@ -76,13 +76,25 @@
     margin-left: 400px;
 }
 
+#pris {
+    background-color: #031F38;
+    width: 150px;
+    padding: 1px;
+    margin: 20px;
+    color: whitesmoke;
+    border-radius: 15px;
+    border: 1px solid red;
+    font-size: 18px;
+    margin-left: -350px;
+}
+
 #submit-btn {
     margin-top: 0px;
     margin-left: 600px;
-    background-color: #031F38;
+    background-color: red;
     color: whitesmoke;
     width: 150px;
-    border: 1px solid red;
+    border: 1px solid #031F38;
     outline: none;
     padding: 0px;
     font-size: 20px;
