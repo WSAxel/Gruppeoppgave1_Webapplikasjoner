@@ -97,13 +97,20 @@ function visKvittering() {
 
 
 function formaterKunder(billett) {
+    let antallVoksne = $("#antallVoksne").val();
+    let antallBarn = $("#antallBarn").val();
+    let sumVoksne = antallVoksne * 1000;
+    let sumBarn = antallBarn * 300;
+    let sum = sumVoksne + sumBarn;
+
     return $(`
         <div class="visBillett">
             <h1> Her er billetten:</h1>
             <p> Billett for ${billett.fornavn} ${billett.etternavn}</p><br>
-           <p> ${billett.adresse} ${billett.postnr} ${billett.poststed}</p><br>
+           <p> ${billett.adresse}, ${billett.postnr} ${billett.poststed}</p><br>
             <p> Antall Barn som reiser er ${billett.antallBarn} og antall voksne som reiser er ${billett.antallVoksne}</p><br>
             <p> Reiser til ${billett.rute}, dato: ${billett.avreise}, tid: ${billett.tid}</p><br>
+<p> Totalpris ${sum} kr </p>
         </div>
 `)
 
