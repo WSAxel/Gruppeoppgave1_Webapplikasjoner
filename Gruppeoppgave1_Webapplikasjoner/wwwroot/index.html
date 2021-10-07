@@ -158,23 +158,23 @@
         <form class="form">
             <div class="form-group">
                 <label>Kortnummer</label>
-                <input type="text" id="kortnummer" />
-                <div class="text-danger" id="feilKortnummer" onchange="validerKortnummer(this.value)"></div>
+                <input type="text" id="kortnummer" onchange="validerKortnummer(this.value)" placeholder="visa/mastercard"/>
+                <div class="text-danger" id="feilKortnummer"></div>
             </div>
             <div class="form-group">
                 <label>Navn på kort</label>
-                <input type="text" id="kortNavn" />
-                <div class="text-danger" id="feilKortNavn" onchange="validerKortnavn(this.value)"></div>
+                <input type="text" id="kortNavn" onchange="validerKortnavn(this.value)"/>
+                <div class="text-danger" id="feilKortNavn"></div>
             </div>
             <div class="form-group">
                 <label>cvv2</label>
-                <input type="text" id="ccv2" />
-                <div class="text-danger" id="feilCcv2" onchange="validerCcv2(this.value)"></div>
+                <input type="text" id="ccv2" onchange="validerCcv2(this.value)"/>
+                <div class="text-danger" id="feilCcv2"></div>
             </div>
             <div class="form-group">
                 <label>Utløpsdato</label>
-                <input type="text" id="utlopsDato" />
-                <div class="text-danger" id="feilUtlopsDato" onchange="validerUtlopsDato(this.value)"></div>
+                <input type="text" id="utlopsDato" onchange="validerUtlopsDato(this.value)" placeholder="mm/yy"/>
+                <div class="text-danger" id="feilUtlopsDato"></div>
             </div>
             <div class="form-group">
                 <label></label>
