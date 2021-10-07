@@ -25,26 +25,23 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
 
         public async Task<ActionResult> SettInn(Billett bestiltBillett)
         {
-            /* _log.LogInformation("billett Info: " +
-                 "Navn - " + bestiltBillett.Fornavn + " " + bestiltBillett.Etternavn +
-                 "Adresse, postnr/poststed " + bestiltBillett.Adresse + " " + bestiltBillett.Postnr + "/" + bestiltBillett.Poststed +
-                 "Reise fra/til " + bestiltBillett.Rute + " tid: " + bestiltBillett.Tid + " Antall voksne " + bestiltBillett.AntallVoksne + " Antall Barn " + bestiltBillett.AntallBarn); */
-
-            if (ModelState.IsValid)
+           /* _log.LogInformation("billett Info: " +
+                "Navn - " + bestiltBillett.Fornavn + " " + bestiltBillett.Etternavn +
+                "Adresse, postnr/poststed " + bestiltBillett.Adresse + " " + bestiltBillett.Postnr + "/" + bestiltBillett.Poststed +
+                "Reise fra/til " + bestiltBillett.Rute + " tid: " + bestiltBillett.Tid + " Antall voksne " + bestiltBillett.AntallVoksne + " Antall Barn " + bestiltBillett.AntallBarn); */
+            bool returOK =  await _db.SettInn(bestiltBillett);
+            if (!returOK)
             {
-                bool returOK = await _db.SettInn(bestiltBillett);
-                if (!returOK)
-                {
-                    _log.LogInformation("Billetten ble ikke bestilt");
-                    return BadRequest("Bilett ble ikke lagret, noe gikk galt - Prøv igjen senere");
-                }
-                return Ok("Billett lagret! God Tur!");
-
+                _log.LogInformation("Billetten ble ikke bestilt");
+                return BadRequest("Bilett ble ikke lagret, noe gikk galt - Prøv igjen senere");
             }
-            _log.LogInformation("Obs, feil i inputvalidering");
-            return BadRequest("Feil i inputvaliderng");
-            
-            
+            _log.LogInformation("billett Info: " + "Navn - " + bestiltBillett.Fornavn + " " + bestiltBillett.Etternavn +
+                                "Adresse, postnr/poststed " + bestiltBillett.Adresse + " " + bestiltBillett.Postnr +
+                                "/" + bestiltBillett.Poststed + "Reise fra/til " + bestiltBillett.Rute + " tid: " +
+                                bestiltBillett.Tid + " Antall voksne " + bestiltBillett.AntallVoksne + " Antall Barn " +
+                                bestiltBillett.AntallBarn);
+
+            return Ok("Billett lagret! God Tur!");
         }
 
         public async Task<ActionResult> HentAlle()
