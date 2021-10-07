@@ -31,7 +31,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public int BId { get; set; }
         public int AntallBarn { get; set; }
         public int AntallVoksne { get; set; }
-        public string Avreise { get; set; }
+        public DateTime Avreise { get; set; }
         public string Rute { get; set; }
         public string Tid { get; set; }
     }
