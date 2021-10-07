@@ -64,8 +64,8 @@ function validerOgKjøp() {
     const kortnavnOK = validerKortnavn($("#kortNavn").val());
     // const ccv2OK = validerCcv2($("#ccv2").val());
 
-    const utløpsdatoOK = validerUtløpsDato($("#utløpsDato").val());
-    if (kortnummerOK && kortnavnOK && utløpsdatoOK) {
+    const utlopsdatoOK = validerUtlopsDato($("#utlopsDato").val());
+    if (kortnummerOK && kortnavnOK && utlopsdatoOK) {
         visKvittering();
         document.getElementById("visKvittering").style.display = "block";
         document.getElementById("second").style.display = "none";

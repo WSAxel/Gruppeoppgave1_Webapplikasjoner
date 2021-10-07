@@ -1,4 +1,4 @@
-﻿//ALLE REGEXENE MÅ TESTES.
+﻿ //ALLE REGEXENE MÅ TESTES.
 
 function validerFornavn(fornavn) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
@@ -13,7 +13,9 @@ function validerFornavn(fornavn) {
     }
 }
 function validerTlf(telefon) {
-    const regexp = /^(?:\+?\d{2}[ -]?\d{3}[ -]?\d{5}|\d{4})$/;
+  //  const regexp = /^(?:\+?\d{2}[ -]?\d{3}[ -]?\d{5}|\d{4})$/;
+
+    const regexp = /^[0-9]{8}$/;
     const ok = regexp.test(telefon);
     if (!ok) {
         $("#feilTlf").html("Nummeret for telefon er feil, landskode må være med");
@@ -27,6 +29,7 @@ function validerTlf(telefon) {
 function validerDato(reiseDato) {
     // const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
     // const regexp = ^(0[1-9]|[12][0-9]|3[01])[-/.];
+
     const regexp = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
     const ok = regexp.test(reiseDato);
     if (!ok) {
@@ -77,6 +80,7 @@ function validerAdresse(adresse) {
 function validerPoststed(poststed) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
     //const regexp = /^[A - Za - zÆØÅæøå]{2,30}$/;
+
     const ok = regexp.test(poststed);
     if (!ok) {
         $("#feilPoststed").html("Poststed er feil");
@@ -128,7 +132,7 @@ function validerKortnavn(kortNavn) {
     }
 }
 function validerCcv2(ccv2) {
-    const regexp = /^[0-9]{2,4}$/;
+    const regexp = /^[0-9]{3}$/;
     const ok = regexp.test(ccv2);
     if (!ok) {
         $("#feilCcv2").html("ccv2 er feil, prøv igjen");
@@ -139,15 +143,15 @@ function validerCcv2(ccv2) {
         return true;
     }
 }
-function validerUtløpsDato(utløpsDato) {
+function validerUtlopsDato(utlopsDato) {
     const regexp = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/;
-    const ok = regexp.test(utløpsDato);
+    const ok = regexp.test(utlopsDato);
     if (!ok) {
-        $("#feilUtløpsDato").html("Utløpsdato er feil, prøv igjen");
+        $("#feilUtlopsDato").html("Utløpsdato er feil, prøv igjen");
         return false;
     }
     else {
-        $("#feilUtløpsDato").html("");
+        $("#feilUtlopsDato").html("");
         return true;
     }
 }
