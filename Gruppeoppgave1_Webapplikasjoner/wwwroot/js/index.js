@@ -5,11 +5,7 @@
     let sumBarn = antallBarn * 300;
     let sum = sumVoksne + sumBarn;
     console.log(sumVoksne + " " + sumBarn + " " + sum);
-    let ut = "<tr>" +
-        "<td>" + "Prisen for alle voksne er " + sumVoksne + "</td>" +
-        "<td>" + "Prisen for alle barn er " + sumBarn + "</td>" +
-        "<td>" + "Full pris blir " + sum + "</td>" +
-        "</tr>";
+    let ut = sum + "kr";
 
     $("#pris").html(ut);
 }
