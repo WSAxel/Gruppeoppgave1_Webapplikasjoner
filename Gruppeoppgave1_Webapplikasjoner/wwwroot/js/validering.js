@@ -27,19 +27,29 @@ function validerTlf(telefon) {
     }
 }
 function validerDato(reiseDato) {
-    // const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
-    // const regexp = ^(0[1-9]|[12][0-9]|3[01])[-/.];
-
-    const regexp = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
-    const ok = regexp.test(reiseDato);
-    if (!ok) {
-        $("#feilDato").html("Dato er feil prøv med DD/MM/YYYY");
+    if (reiseDato == null) {
+        $("#feilDato").html("Dato må fylles ut");
         return false;
     }
     else {
         $("feilDato").html("");
         return true;
     }
+    // const regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+    // const regexp = ^(0[1-9]|[12][0-9]|3[01])[-/.];
+
+   // const regexp = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+// const ok = regexp.test(reiseDato);
+
+    /*if (!ok) {
+        $("#feilDato").html("Dato er feil prøv med DD/MM/YYYY");
+        return false;
+    }
+    else {
+        $("feilDato").html("");
+        return true;
+    }*/
+
 }
 function validerEtternavn(etternavn) {
     const regexp = /^[a-zA-ZæøåÆØÅ\.\ \-]{2,20}$/;
