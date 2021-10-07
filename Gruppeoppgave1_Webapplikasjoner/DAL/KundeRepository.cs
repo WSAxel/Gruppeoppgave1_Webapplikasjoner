@@ -28,8 +28,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                 nyKundeRad.Adresse = bestiltBillett.Adresse;
                 nyKundeRad.Telefonnr = bestiltBillett.Telefonnr;
                 nyKundeRad.Mail = bestiltBillett.Mail;
-                // nyKundeRad.Postnr = bestiltBillett.Postnr;
-                // nyKundeRad.Poststed = bestiltBillett.Poststed;
+
 
                 var nyBestillingsrad = new Bestillinger();
                 nyBestillingsrad.AntallBarn = bestiltBillett.AntallBarn;
@@ -65,41 +64,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             {
                 return false;
             }
-            /*
-            var bestilling = new Bestilling()
-            {
-                AntallBarn = bestiltBillett.AntallBarn,
-                AntallVoksne = bestiltBillett.AntallVoksne,
-                Avreise = bestiltBillett.Avreise,
-                Rute = bestiltBillett.Rute
-
-            };
-
-            Kunde funnetKunde = _kundeDB.Kunder.FirstOrDefault(k => k.Fornavn == bestiltBillett.Fornavn);
-
-            if(funnetKunde == null) {
-                //oprett kunde
-                var kunde = new Kunde
-                {
-                    Fornavn = bestiltBillett.Fornavn,
-                    Etternavn = bestiltBillett.Etternavn,
-                    Telefonnr = bestiltBillett.Telefonnr,
-                    Mail = bestiltBillett.Mail,
-                    Adresse = bestiltBillett.Adresse,
-                    Postnr = bestiltBillett.Postnr,
-                    Poststed = bestiltBillett.Poststed
-                };
-                //legg bestilling inn i kunde
-                kunde.Bestillinger = new List<Bestilling>();
-                kunde.Bestillinger.Add(bestilling);
-                _kundeDB.Kunder.Add(kunde);
-                _kundeDB.SaveChanges();
-            }
-            else
-            {
-                funnetKunde.Bestillinger.Add(bestilling);
-                _kundeDB.SaveChanges();
-            }*/
+           
         }
 
         public async Task<List<Billett>> HentAlle()
@@ -130,33 +95,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             {
                 return null;
             }
-            /* List<Kunder> alleKundene = _kundeDB.Kunder.ToList();
-
-             List<Billett> alleBestillinger = new List<Billett>();
-             foreach (var kunde in alleKundene)
-             {
-                 foreach (var best in kunde.Bestilling)
-                 {
-                     var enBestilling = new Billett
-                     {
-                         Fornavn = kunde.Fornavn,
-                         Etternavn = kunde.Etternavn,
-                         Telefonnr = kunde.Telefonnr,
-                         Mail = kunde.Mail,
-                         Adresse = kunde.Adresse,
-                         Postnr = kunde.Postnr,
-                         Poststed = kunde.Poststed,
-
-                         AntallBarn = best.AntallBarn,
-                         AntallVoksne = best.AntallVoksne,
-                         Avreise = best.Avreise,
-                         Rute = best.Rute
-
-                     };
-                     alleBestillinger.Add(enBestilling);
-                 }
-             }
-             return alleKundene;*/
+            
         }
 
 

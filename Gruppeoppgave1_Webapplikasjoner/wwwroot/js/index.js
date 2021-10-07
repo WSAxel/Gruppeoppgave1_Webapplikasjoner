@@ -44,14 +44,7 @@ function lagreBestilling() {
     billettList.push(billett);
     const url = "Kunde/SettInn";
     $.post(url, billett, function (OK) {
-      /*  if (OK) {*/
-            //   window.location.href = "betal.html";
             console.log("fungerer, info lagres");
-          
-      //  }
-        /*else {
-            alert("Feil i db, prøv igjen senere");
-        }*/
     })
         .fail(function () {
             $("#feil").html("OBS noe gikk galt, feil på server - prøv igjen senere");
@@ -78,21 +71,7 @@ function visKvittering() {
     for (billett of billettList) {
         billettKvittering.append(formaterKunder(billett));
     }
-   /* const id = window.location.search.substring(1);
-    $.get("Kunde/HentEn", function (billett) {
-
-        
-      /* $("#id").val(billett.id);
-        $("#fornavn").val(billett.fornavn);
-        $("#etternavn").val(billett.etternavn);
-        $("#telefon").val(billett.telefonnr);
-        $("#reiserute").val(billett.rute);
-        $("#reiseDato").val(billett.avreise);
-        $("#antallVoksne").val(billett.antallVoksne);
-        $("#antallBarn").val(billett.antallBarn);
-        $("#postnr").val(billett.postnr);
-        $("#poststed").val(billett.poststed);*/
-   /* });*/
+   
 }
 
 
