@@ -25,10 +25,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
 
         public async Task<ActionResult> SettInn(Billett bestiltBillett)
         {
-           /* _log.LogInformation("billett Info: " +
-                "Navn - " + bestiltBillett.Fornavn + " " + bestiltBillett.Etternavn +
-                "Adresse, postnr/poststed " + bestiltBillett.Adresse + " " + bestiltBillett.Postnr + "/" + bestiltBillett.Poststed +
-                "Reise fra/til " + bestiltBillett.Rute + " tid: " + bestiltBillett.Tid + " Antall voksne " + bestiltBillett.AntallVoksne + " Antall Barn " + bestiltBillett.AntallBarn); */
+         
             bool returOK =  await _db.SettInn(bestiltBillett);
             if (!returOK)
             {
@@ -37,8 +34,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             }
             _log.LogInformation("billett Info: " + "Navn - " + bestiltBillett.Fornavn + " " + bestiltBillett.Etternavn +
                                 "Adresse, postnr/poststed " + bestiltBillett.Adresse + " " + bestiltBillett.Postnr +
-                                "/" + bestiltBillett.Poststed + "Reise fra/til " + bestiltBillett.Rute + " tid: " +
-                                bestiltBillett.Tid + " Antall voksne " + bestiltBillett.AntallVoksne + " Antall Barn " +
+                                "/" + bestiltBillett.Poststed + ", Reise(fra-til) " + bestiltBillett.Rute + ", Dato - tid: " +
+                                bestiltBillett.Avreise +" "+ bestiltBillett.Tid + " Antall voksne " + bestiltBillett.AntallVoksne + " Antall Barn " +
                                 bestiltBillett.AntallBarn);
 
             return Ok("Billett lagret! God Tur!");
