@@ -110,6 +110,12 @@
 #cvv2 {
     margin-left: 53px;
 }
-#utløpsDato {
+#utlopsDato {
     margin-left: 11px;
+}
+.visBillett {
+    width: 400px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding-left: 12px;
 }
