@@ -16,7 +16,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         [RegularExpression(@"[0-9]{8}$")]
         public string Telefonnr { get; set; }
 
-       
+        [RegularExpression(@"[^\s@]+@[^\s@]+\.[^\s@]+$")]
         public string Mail { get; set; }
 
         [RegularExpression(@"^[0-9a-zA-ZæøåÆØÅ\ \.\-]{2,50}$")]
