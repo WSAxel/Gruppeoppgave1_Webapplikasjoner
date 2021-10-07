@@ -5,7 +5,7 @@
     let sumBarn = antallBarn * 300;
     let sum = sumVoksne + sumBarn;
     console.log(sumVoksne + " " + sumBarn + " " + sum);
-    let ut = sum + "kr";
+    let ut = "Totalpris: " + sum + "kr";
 
     $("#pris").html(ut);
 }
