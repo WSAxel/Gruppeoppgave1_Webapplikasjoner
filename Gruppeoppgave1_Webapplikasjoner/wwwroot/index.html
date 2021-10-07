@@ -80,7 +80,7 @@
 
                     <div id="content">
                         <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
-                        <input type="date" id="reiseDato" onchange="validerDato(this.value)" placeholder="Reisedato">
+                        <input type="date" id="reiseDato" onchange="validerDato(this.value)" placeholder="Reisedato" min="2021-10-01" max="2022-12-31">
                         <div class="text-danger" id="feilDato"></div>
                     </div>
                     <div id="content">
@@ -168,7 +168,7 @@
             </div>
             <div class="form-group">
                 <label>cvv2</label>
-                <input type="text" id="cvv2" />
+                <input type="text" id="ccv2" />
                 <div class="text-danger" id="feilCcv2" onchange="validerCcv2(this.value)"></div>
             </div>
             <div class="form-group">

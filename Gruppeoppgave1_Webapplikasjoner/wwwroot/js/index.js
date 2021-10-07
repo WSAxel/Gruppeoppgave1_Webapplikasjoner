@@ -55,10 +55,10 @@ function lagreBestilling() {
 function validerOgKjøp() {
     const kortnummerOK = validerKortnummer($("#kortnummer").val());
     const kortnavnOK = validerKortnavn($("#kortNavn").val());
-    // const ccv2OK = validerCcv2($("#ccv2").val());
+    const ccv2OK = validerCcv2($("#ccv2").val());
 
     const utlopsdatoOK = validerUtlopsDato($("#utlopsDato").val());
-    if (kortnummerOK && kortnavnOK && utlopsdatoOK) {
+    if (kortnummerOK && kortnavnOK && utlopsdatoOK && ccv2OK) {
         visKvittering();
         document.getElementById("visKvittering").style.display = "block";
         document.getElementById("second").style.display = "none";
@@ -85,7 +85,7 @@ function formaterKunder(billett) {
     return $(`
         <div class="visBillett">
             <h1> Her er billetten:</h1>
-            <p> Billett for ${billett.fornavn} ${billett.etternavn}</p><br>
+            <p> Billett for: ${billett.fornavn} ${billett.etternavn}</p><br>
            <p> ${billett.adresse}, ${billett.postnr} ${billett.poststed}</p><br>
             <p> Antall Barn som reiser er ${billett.antallBarn} og antall voksne som reiser er ${billett.antallVoksne}</p><br>
             <p> Reiser til ${billett.rute}, dato: ${billett.avreise}, tid: ${billett.tid}</p><br>
