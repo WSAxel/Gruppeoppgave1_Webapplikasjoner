@@ -32,6 +32,7 @@ namespace Gruppeoppgave1_Webapplikasjoner
             {
                 app.UseDeveloperExceptionPage();
                 loggerFactory.AddFile("Logs/BillettLog.txt");
+                DBInit.Initialize(app);
             }
 
             app.UseRouting();
