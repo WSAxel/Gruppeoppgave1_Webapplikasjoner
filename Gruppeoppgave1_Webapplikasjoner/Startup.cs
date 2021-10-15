@@ -31,6 +31,7 @@ namespace Gruppeoppgave1_Webapplikasjoner
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                DbInit.Initialize(app);
                 loggerFactory.AddFile("Logs/BillettLog.txt");
             }
 
