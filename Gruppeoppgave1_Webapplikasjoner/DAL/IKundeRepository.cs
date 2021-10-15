@@ -10,6 +10,5 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
         Task<bool> SettInn(Billett bestiltBillett);
         Task<List<Billett>> HentAlle();
         Task<Billett> HentEn(int id);
-        Task<bool> LoggInn(Bruker bruker);
     }
 }

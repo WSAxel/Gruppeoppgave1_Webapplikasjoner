@@ -57,21 +57,5 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             }
             return Ok("Billetten hentet");
         }
-
-        public async Task<ActionResult> LoggInn(Bruker bruker)
-        {
-            if (ModelState.IsValid)
-            {
-                bool returnOK = await _db.LoggInn(bruker);
-                if (!returnOK)
-                {
-                    _log.LogInformation("Innlogging feilet" + bruker.Brukernavn);
-                    return Ok(false);
-                }
-                return Ok(true);
-            }
-            _log.LogInformation("Feil i input");
-            return BadRequest("feil i input - server");
-        }
     }
 }
