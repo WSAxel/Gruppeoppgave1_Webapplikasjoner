@@ -1,4 +1,5 @@
 ﻿using System;
+using Gruppeoppgave1_Webapplikasjoner.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +15,16 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
 
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
+
+                var bruker = new Brukere();
+                bruker.Brukernavn = "Admin";
+                string passord = "Test11";
+                byte[] salt = KundeRepository.LagSalt();
+                byte[] hash = KundeRepository.LagHash(passord, salt);
+                bruker.Passord = hash;
+                bruker.Salt = salt;
+                context.Brukere.Add(bruker);
+
 
                 context.SaveChanges();
             }

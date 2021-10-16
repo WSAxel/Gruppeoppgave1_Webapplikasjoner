@@ -1,3 +1,4 @@
+using System;
 using Gruppeoppgave1_Webapplikasjoner.DAL;
 using Gruppeoppgave1_Webapplikasjoner.Models;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +23,13 @@ namespace Gruppeoppgave1_Webapplikasjoner
             //Denne ogs? ser man jo er feil farge kontra den metoden over
 
             services.AddScoped<IKundeRepository, KundeRepository>();
-
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(1800);
+                options.Cookie.IsEssential = true;
+            });
+            services.AddDistributedMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +48,7 @@ namespace Gruppeoppgave1_Webapplikasjoner
             {
                 endpoints.MapControllers();
             });
+            app.UseSession();
         }
     }
 }

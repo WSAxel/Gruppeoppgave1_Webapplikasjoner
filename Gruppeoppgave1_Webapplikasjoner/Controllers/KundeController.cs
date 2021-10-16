@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Gruppeoppgave1_Webapplikasjoner.DAL;
 using Gruppeoppgave1_Webapplikasjoner.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -16,6 +17,8 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
         private readonly IKundeRepository _db;
 
         private ILogger<KundeController> _log;
+
+        private const string _loggetInn = "loggetInn";
 
         public KundeController(IKundeRepository db, ILogger<KundeController> log)
         {
@@ -57,5 +60,31 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             }
             return Ok("Billetten hentet");
         }
+
+        public async Task<ActionResult> LoggInn(Bruker bruker)
+        {
+            if (ModelState.IsValid)
+            {
+                bool returnOK = await _db.LoggInn(bruker);
+                if (!returnOK)
+                {
+                    _log.LogInformation("innlogget feilet: " + bruker.Brukernavn);
+                    HttpContext.Session.SetString(_loggetInn, "");
+                    return Ok(false);
+                }
+                HttpContext.Session.SetString(_loggetInn, "loggetInn");
+                return Ok(true);
+
+            }
+            _log.LogInformation("feil i inputvalidering");
+            return BadRequest("Feil i inputvaldiering - server");
+        }
+
+        public void LoggUt()
+        {
+            HttpContext.Session.SetString(_loggetInn, "");
+        }
     }
+
+    
 }

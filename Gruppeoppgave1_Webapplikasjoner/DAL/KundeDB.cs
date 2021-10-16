@@ -44,6 +44,14 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public string Poststed { get; set; }
 
     }
+
+    public class Brukere
+    {
+        public int Id { get; set; }
+        public string Brukernavn { get; set; }
+        public byte[] Passord { get; set; }
+        public byte[] Salt { get; set; }
+    }
 }
 
 public class KundeDB : DbContext 
@@ -58,6 +66,7 @@ public class KundeDB : DbContext
     public DbSet<Kunder> Kunder { get; set; }
     public DbSet<Bestillinger> Bestillinger { get; set; }
     public DbSet<Poststeder> Poststeder { get; set; }
+    public DbSet<Brukere> Brukere { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

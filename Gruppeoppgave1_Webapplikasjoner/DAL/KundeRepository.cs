@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Gruppeoppgave1_Webapplikasjoner.Models;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Gruppeoppgave1_Webapplikasjoner.DAL
 {
@@ -11,9 +14,11 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
     {
         private readonly KundeDB _kundeDB;
 
+
         public KundeRepository(KundeDB kundeDb)
         {
             _kundeDB = kundeDb;
+           
         }
 
         
@@ -127,6 +132,45 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             catch
             {
                 return null;
+            }
+        }
+
+        public static byte[] LagHash(string passord, byte[] salt)
+        {
+            return KeyDerivation.Pbkdf2(
+                password: passord,
+                salt: salt,
+                prf: KeyDerivationPrf.HMACSHA512,
+                iterationCount: 1000,
+                numBytesRequested: 32);
+        }
+
+        public static byte[] LagSalt()
+        {
+            var csp = new RNGCryptoServiceProvider();
+            var salt = new byte[24];
+            csp.GetBytes(salt);
+            return salt;
+        }
+
+        public async Task<bool> LoggInn(Bruker bruker)
+        {
+            try
+            {
+                Brukere funnetBruker = await _kundeDB.Brukere.FirstOrDefaultAsync(b => b.Brukernavn == bruker.Brukernavn);
+                byte[] hash = LagHash(bruker.Passord, funnetBruker.Salt);
+                bool ok = hash.SequenceEqual(funnetBruker.Passord);
+
+                if (ok)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+              
+                return false;
             }
         }
     }
