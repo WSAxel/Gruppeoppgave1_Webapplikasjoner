@@ -44,11 +44,12 @@ namespace Gruppeoppgave1_Webapplikasjoner
 
             app.UseRouting();
             app.UseStaticFiles();
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-            app.UseSession();
+            
         }
     }
 }

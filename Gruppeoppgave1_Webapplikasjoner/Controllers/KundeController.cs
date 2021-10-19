@@ -18,7 +18,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
 
         private ILogger<KundeController> _log;
 
-      //  private const string _loggetInn = "loggetInn";
+        private const string _loggetInn = "loggetInn";
 
         public KundeController(IKundeRepository db, ILogger<KundeController> log)
         {
@@ -46,6 +46,10 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
 
         public async Task<ActionResult> HentAlle()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            {
+                return Unauthorized();
+            }
             List<Billett> alleBilletter = await _db.HentAlle();
             return Ok(alleBilletter);
         }
@@ -69,10 +73,10 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
                 if (!returnOK)
                 {
                     _log.LogInformation("innlogget feilet: " + bruker.Brukernavn);
-                  //  HttpContext.Session.SetString(_loggetInn, "");
+                   HttpContext.Session.SetString(_loggetInn, "");
                     return Ok(false);
                 }
-                //HttpContext.Session.SetString(_loggetInn, "loggetInn");
+                HttpContext.Session.SetString(_loggetInn, "LoggetInn");
                 return Ok(true);
 
             }
@@ -80,6 +84,10 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             return BadRequest("Feil i inputvaldiering - server");
         }
 
+        public void LoggUt()
+        {
+            HttpContext.Session.SetString(_loggetInn, "");
+        }
         
     }
 

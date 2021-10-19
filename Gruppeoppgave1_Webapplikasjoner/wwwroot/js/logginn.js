@@ -8,7 +8,7 @@
             window.location.href = 'Admin.html';
         }
         else {
-            $("#feil").htmnl("Feil på server");
+            $("#feil").html("Feil på server");
         }
     });
 }
