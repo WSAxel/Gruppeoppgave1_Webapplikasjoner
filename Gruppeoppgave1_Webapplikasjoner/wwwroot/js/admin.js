@@ -32,8 +32,8 @@ function formaterBilletter(billetter) {
             "<td>" + billett.rute + "</td>" +
             "<td>" + billett.avreise + "</td>" +
             "<td>" + billett.tid + "</td>" +
-            "<td>" + billett.antallVoskne + "</td>" +
             "<td>" + billett.antallBarn + "</td>" +
+            "<td>" + billett.antallVoksne + "</td>" +
             "<td> <a class='btn btn-primary' href='endre.html?id=" + billett.id + "'>Endre</a></td>" +
             "<td><button class='btn btn-danger' onclick='slettKunde(" + billett.id + ")'>slett</button></td> " +
             "</tr>";
