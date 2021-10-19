@@ -53,6 +53,12 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             List<Billett> alleBilletter = await _db.HentAlle();
             return Ok(alleBilletter);
         }
+        public async Task<ActionResult> HentRuter()
+        {
+            
+            List<Ruter> alleRuter = await _db.HentRuter();
+            return Ok(alleRuter);
+        }
 
         public async Task<ActionResult> HentEn(int id)
         {
@@ -64,6 +70,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             }
             return Ok("Billetten hentet");
         }
+
 
         public async Task<ActionResult> LoggInn(Bruker bruker)
         {

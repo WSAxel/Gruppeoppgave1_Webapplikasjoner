@@ -52,6 +52,14 @@ namespace Gruppeoppgave1_Webapplikasjoner.Models
         public byte[] Passord { get; set; }
         public byte[] Salt { get; set; }
     }
+
+    public class Ruter
+    {
+        [Key]
+        public int Id { get; set; }
+        public string TilFra { get; set; }
+
+    }
 }
 
 public class KundeDB : DbContext 
@@ -67,6 +75,7 @@ public class KundeDB : DbContext
     public DbSet<Bestillinger> Bestillinger { get; set; }
     public DbSet<Poststeder> Poststeder { get; set; }
     public DbSet<Brukere> Brukere { get; set; }
+    public DbSet<Ruter> Rutere { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

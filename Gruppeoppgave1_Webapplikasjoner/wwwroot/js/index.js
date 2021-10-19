@@ -1,4 +1,23 @@
-﻿function prisKalkulering() {
+﻿$(function () {
+    hentRuter();
+});
+
+function hentRuter() {
+    $.get("Kunde/HentRuter", function (Ruter) {
+        formaterRuter(Ruter);
+    });
+}
+
+function formaterRuter(Ruter) {
+    let ut = "";
+    for (let rute of Ruter) {
+        ut += "<option id="+rute.id+" value="+rute.tilFra+">" + rute.tilFra + "</option> ";
+    }
+    $("#reiserute").html(ut);
+}
+
+
+function prisKalkulering() {
     let antallVoksne = $("#antallVoksne").val();
     let antallBarn = $("#antallBarn").val();
     let sumVoksne = antallVoksne * 1000;
@@ -100,3 +119,5 @@ function formaterKunder(billett) {
 `)
 
 }
+
+

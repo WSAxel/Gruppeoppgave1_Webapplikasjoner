@@ -16,6 +16,38 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                 context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
+                var enRute = new Ruter
+                {
+                    TilFra = "Oslo--Kiel"
+
+                };
+                var enRute2 = new Ruter
+                {
+                    TilFra = "Oslo--Hirtshall"
+
+                };
+                var enRute3 = new Ruter
+                {
+                    TilFra = "Oslo--Stockholm"
+
+                };
+                var enRute4 = new Ruter
+                {
+                    TilFra = "Oslo--Helsinki"
+
+                };
+                var enRute5 = new Ruter
+                {
+                    TilFra = "Oslo--København"
+
+                };
+
+                context.Rutere.Add(enRute);
+                context.Rutere.Add(enRute2);
+                context.Rutere.Add(enRute3);
+                context.Rutere.Add(enRute4);
+                context.Rutere.Add(enRute5);
+
                 var bruker = new Brukere();
                 bruker.Brukernavn = "Admin";
                 string passord = "Test11";

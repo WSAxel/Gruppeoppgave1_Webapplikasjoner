@@ -103,6 +103,27 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             
         }
 
+        public async Task<List<Ruter>> HentRuter()
+        {
+            try
+            {
+                List<Ruter> alleRuter = await _kundeDB.Rutere.Select(k => new Ruter
+                {
+                    Id = k.Id,
+                    TilFra = k.TilFra
+                    
+
+                }).ToListAsync();
+
+                return alleRuter;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
 
         public async Task<Billett> HentEn(int id)
         {
