@@ -156,6 +156,48 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             }
         }
 
+        public async Task<bool> Endre(Billett endreBillett)
+        {
+            try
+            {
+                var endre = await _kundeDB.Kunder.FindAsync(endreBillett.Id);
+                if(endre.Poststed.Postnr != endreBillett.Postnr)
+                {
+                    var sjekkPostnr = _kundeDB.Poststeder.Find(endreBillett.Postnr);
+                    if(sjekkPostnr == null)
+                    {
+                        var poststedsRad = new Poststeder();
+                        poststedsRad.Postnr = endreBillett.Postnr;
+                        poststedsRad.Poststed = endreBillett.Poststed;
+                        endre.Poststed = poststedsRad;
+                    }
+                    else
+                    {
+                        endre.Poststed.Postnr = endreBillett.Postnr;
+                    }
+                }
+                endre.Fornavn = endreBillett.Fornavn;
+                endre.Etternavn = endreBillett.Etternavn;
+                endre.Adresse = endreBillett.Adresse;
+                endre.Telefonnr = endreBillett.Telefonnr;
+                endre.Mail = endreBillett.Mail;
+                endre.Bestilling.AntallBarn = endreBillett.AntallBarn;
+                endre.Bestilling.AntallVoksne = endreBillett.AntallVoksne;
+                endre.Bestilling.Rute = endreBillett.Rute;
+                endre.Bestilling.Avreise = endreBillett.Avreise;
+                endre.Bestilling.Tid = endreBillett.Tid;
+
+                await _kundeDB.SaveChangesAsync();
+
+            }
+            catch
+            {
+                
+                return false;
+            }
+            return true;
+        }
+
         public static byte[] LagHash(string passord, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(
@@ -191,6 +233,25 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             catch
             {
               
+                return false;
+            }
+        }
+
+        public async Task<bool> Slett(int id)
+        {
+            try
+            {
+                Kunder enKunde = await _kundeDB.Kunder.FindAsync(id);
+                _kundeDB.Kunder.Remove(enKunde);
+
+                Bestillinger enBestilling = await _kundeDB.Bestillinger.FindAsync(id);
+                _kundeDB.Bestillinger.Remove(enBestilling);
+
+                await _kundeDB.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
                 return false;
             }
         }

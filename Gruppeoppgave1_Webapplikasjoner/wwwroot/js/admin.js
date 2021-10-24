@@ -35,10 +35,21 @@ function formaterBilletter(billetter) {
             "<td>" + billett.antallBarn + "</td>" +
             "<td>" + billett.antallVoksne + "</td>" +
             "<td> <a class='btn btn-primary' href='endre.html?id=" + billett.id + "'>Endre</a></td>" +
-            "<td><button class='btn btn-danger' onclick='slettKunde(" + billett.id + ")'>slett</button></td> " +
+            "<td><button class='btn btn-danger' onclick='slettBestilling(" + billett.id + ")'>slett</button></td> " +
             "</tr>";
     }
     ut += "</table>";
     $("#billetter").html(ut);
 
+}
+function slettBestilling(id) {
+    const url = "Kunde/Slett?id=" + id;
+
+    $.get(url, function () {
+        window.location.href = 'Admin.html';
+
+    })
+        .fail(function () {
+            $("#feil").html("Feil på server - prøv igjen");
+        });
 }

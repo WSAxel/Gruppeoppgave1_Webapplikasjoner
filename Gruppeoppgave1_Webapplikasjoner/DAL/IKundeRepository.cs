@@ -12,5 +12,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
         Task<Billett> HentEn(int id);
         Task<bool> LoggInn(Bruker bruker);
         Task<List<Ruter>> HentRuter();
+        Task<bool> Slett(int id);
+        Task<bool> Endre(Billett endreBillett);
     }
 }

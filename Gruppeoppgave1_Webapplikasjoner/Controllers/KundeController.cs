@@ -95,6 +95,30 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
         {
             HttpContext.Session.SetString(_loggetInn, "");
         }
+
+
+        public async Task<ActionResult> Slett(int id)
+        {
+            bool returOK = await _db.Slett(id);
+            if (!returOK)
+            {
+                _log.LogInformation("Sletting av kunden ikke utført");
+                return NotFound("Billetten ble ikke funnet");
+            }
+            return Ok("Billett slettet");
+        }
+
+        public async Task<ActionResult> Endre(Billett endreBillett)
+        {
+            bool returOK = await _db.Endre(endreBillett);
+            if (!returOK)
+            {
+                _log.LogInformation("Endringene kunne ikke utføres");
+                return NotFound("Endringer av bestilling ikke utført");
+            }
+            return Ok("Bestilling endret");
+        }
+       
         
     }
 
