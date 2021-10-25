@@ -3,14 +3,11 @@
     
 });
 
-
-
 function hentRuter() {
     $.get("Kunde/HentRuter", function (Ruter) {
         formaterRuter(Ruter);
     });
 }
-
 
 function formaterRuter(Ruter) {
     let ut = "<table class = 'table table-striped'>" +
@@ -30,22 +27,24 @@ function formaterRuter(Ruter) {
     $("#ruter").html(ut);
 }
 
-
 function LagreRute() {
     const rute = {
-        id: $("id").val(),
-        avreise: $("#reiseRute").val()
+        id: $("#id").val(),
+        tilFra: $("#rute").val()
     }
-    const url = "kunde/EndreRute";
+    const url = "Kunde/EndreRute";
     $.post(url, rute, function () {
         window.location.href = 'ruter.html'
     })
-        .fail(function () {
-            $("#feil").html("feil på server");
+        .fail(function (feil) {
+            if (feil.status == 401) {
+                window.location.href = 'logginn.html';
+            }
+            else {
+                $("#feil").html("feil på server");
+            }
         });
-
 }
-
 
 function endreBestilling() {
     const billett = {
