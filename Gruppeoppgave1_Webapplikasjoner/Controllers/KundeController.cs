@@ -108,6 +108,17 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             return Ok("Billett slettet");
         }
 
+        public async Task<ActionResult> SlettRute(int id)
+        {
+            bool returOK = await _db.SlettRute(id);
+                if (!returOK)
+                {
+                    _log.LogInformation("slett av rute ikke utført");
+                    return NotFound("rute ikke funnet");
+                }
+                return Ok("Billett slettet");
+            
+        }
         public async Task<ActionResult> Endre(Billett endreBillett)
         {
             bool returOK = await _db.Endre(endreBillett);

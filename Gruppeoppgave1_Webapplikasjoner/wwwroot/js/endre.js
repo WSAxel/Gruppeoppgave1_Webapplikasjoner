@@ -52,7 +52,7 @@ function validerOgLagreBillett() {
 }
 
 function endreBestilling() {
-    const Billett = {
+    const billett = {
         id: $("#id").val(),
         fornavn: $("#fornavn").val(),
         rute: $("#reiserute").val(),
@@ -67,7 +67,9 @@ function endreBestilling() {
         poststed: $("#poststed").val(),
         tid: $("#rutetider").val()
     };
-    $.post("Kunde/Endre", Billett, function () {
+
+    const url = "Kunde/Endre";
+    $.post(url, billett, function () {
         window.location.href = 'admin.html';
     })
     .fail(function () {

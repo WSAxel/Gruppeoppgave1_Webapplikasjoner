@@ -13,11 +13,15 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
     public class KundeRepository : IKundeRepository
     {
         private readonly KundeDB _kundeDB;
+        private ILogger<KundeRepository> _log;
 
 
-        public KundeRepository(KundeDB kundeDb)
+
+        public KundeRepository(KundeDB kundeDb, ILogger<KundeRepository> log)
         {
             _kundeDB = kundeDb;
+            _log = log;
+
            
         }
 
@@ -190,9 +194,9 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                 await _kundeDB.SaveChangesAsync();
 
             }
-            catch
+            catch (Exception e)
             {
-                
+                _log.LogInformation(e.Message);
                 return false;
             }
             return true;
@@ -247,6 +251,21 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                 Bestillinger enBestilling = await _kundeDB.Bestillinger.FindAsync(id);
                 _kundeDB.Bestillinger.Remove(enBestilling);
 
+                await _kundeDB.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> SlettRute(int id)
+        {
+            try
+            {
+                Ruter enRute = await _kundeDB.Rutere.FindAsync(id);
+                _kundeDB.Rutere.Remove(enRute);
                 await _kundeDB.SaveChangesAsync();
                 return true;
             }
