@@ -202,6 +202,20 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             return true;
         }
 
+        public async Task<bool> EndreRute(Ruter endreRute)
+        {
+            try
+            {
+                var ruteEndre = await _kundeDB.Rutere.FindAsync(endreRute.Id);
+                ruteEndre.TilFra = endreRute.TilFra;
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
         public static byte[] LagHash(string passord, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(

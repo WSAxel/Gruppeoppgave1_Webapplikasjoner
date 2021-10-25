@@ -31,11 +31,47 @@ function formaterRuter(Ruter) {
 }
 
 
-/*function lagreRute() {
-    const url = "kunde/SlettRute?id" + id;
+function LagreRute() {
+    const rute = {
+        id: $("id").val(),
+        avreise: $("#reiseRute").val()
+    }
+    const url = "kunde/EndreRute";
+    $.post(url, rute, function () {
+        window.location.href = 'ruter.html'
+    })
+        .fail(function () {
+            $("#feil").html("feil på server");
+        });
 
-}*/
+}
 
+
+function endreBestilling() {
+    const billett = {
+        id: $("#id").val(),
+        fornavn: $("#fornavn").val(),
+        rute: $("#reiserute").val(),
+        telefonnr: $("#telefon").val(),
+        avreise: $("#reiseDato").val(),
+        antallVoksne: $("#antallVoksne").val(),
+        etternavn: $("#etternavn").val(),
+        mail: $("#e-post").val(),
+        adresse: $("#adresse").val(),
+        antallBarn: $("#antallBarn").val(),
+        postnr: $("#postnr").val(),
+        poststed: $("#poststed").val(),
+        tid: $("#rutetider").val()
+    };
+
+    const url = "Kunde/Endre";
+    $.post(url, billett, function () {
+        window.location.href = 'admin.html';
+    })
+        .fail(function () {
+            $("#feil").html("feil på server");
+        });
+}
 
 
 function slettRute(id) {
