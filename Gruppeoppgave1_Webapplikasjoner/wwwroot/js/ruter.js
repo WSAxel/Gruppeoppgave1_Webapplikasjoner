@@ -17,7 +17,7 @@ function formaterRuter(Ruter) {
     for (let rute of Ruter) {
         ut += "<tr>" +
 
-            "<td>" + rute.tilFra + "</td>" + "<td>" + rute.id + "</td>" +
+            "<td>" + rute.tilFra + "</td>" + "<td class="+rute.id+">" + rute.id + "</td>" +
            
             "<td> <a class='btn btn-primary' href='ruteEndre.html?id=" + rute.id + "'>Endre</a></td>" +
             "<td><button class='btn btn-danger' onclick='slettRute(" + rute.id + ")'>slett</button></td> " +
@@ -27,16 +27,24 @@ function formaterRuter(Ruter) {
     $("#ruter").html(ut);
 }
 
+function GetUrl(url) {
+    let a = url.split('?')[1].split("=")[1];
+    console.log(a);
+    return a;
+}
 function LagreRute() {
     const rute = {
-        id: $("#id").val(),
+        id: GetUrl(window.location.href),
         tilFra: $("#rute").val()
-    }
+    };
+    
     const url = "Kunde/EndreRute";
-    $.post(url, rute, function () {
+    $.post(url, rute, function (OK) {
         window.location.href = 'ruter.html'
+        //console.log("ok");
     })
         .fail(function (feil) {
+            console.log("feil: ", feil);
             if (feil.status == 401) {
                 window.location.href = 'logginn.html';
             }
@@ -45,33 +53,6 @@ function LagreRute() {
             }
         });
 }
-
-function endreBestilling() {
-    const billett = {
-        id: $("#id").val(),
-        fornavn: $("#fornavn").val(),
-        rute: $("#reiserute").val(),
-        telefonnr: $("#telefon").val(),
-        avreise: $("#reiseDato").val(),
-        antallVoksne: $("#antallVoksne").val(),
-        etternavn: $("#etternavn").val(),
-        mail: $("#e-post").val(),
-        adresse: $("#adresse").val(),
-        antallBarn: $("#antallBarn").val(),
-        postnr: $("#postnr").val(),
-        poststed: $("#poststed").val(),
-        tid: $("#rutetider").val()
-    };
-
-    const url = "Kunde/Endre";
-    $.post(url, billett, function () {
-        window.location.href = 'admin.html';
-    })
-        .fail(function () {
-            $("#feil").html("feil på server");
-        });
-}
-
 
 function slettRute(id) {
     const url = "Kunde/SlettRute?id=" + id;

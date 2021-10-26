@@ -119,6 +119,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
                 return Ok("Billett slettet");
             
         }
+        
         public async Task<ActionResult> Endre(Billett endreBillett)
         {
             bool returOK = await _db.Endre(endreBillett);
@@ -129,8 +130,23 @@ namespace Gruppeoppgave1_Webapplikasjoner.Controllers
             }
             return Ok("Bestilling endret");
         }
-       
-        
+        [HttpPost]
+        public async Task<ActionResult> EndreRute(Ruter endreRute)
+        {
+          
+                bool returOK = await _db.EndreRute(endreRute);
+                if (!returOK)
+                {
+                    _log.LogInformation("Endringene kunne ikke utføres");
+                    return NotFound("Endringer av rute ikke utført");
+                }
+                return Ok("Bestilling endret");
+            
+           
+        }
+
+
+
     }
 
     

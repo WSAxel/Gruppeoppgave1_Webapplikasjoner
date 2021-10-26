@@ -15,5 +15,6 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
         Task<bool> Slett(int id);
         Task<bool> SlettRute(int id);
         Task<bool> Endre(Billett endreBillett);
+        Task<bool> EndreRute(Ruter endreRute);
     }
 }

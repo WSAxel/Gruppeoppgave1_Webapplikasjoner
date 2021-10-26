@@ -167,7 +167,7 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
                 var endre = await _kundeDB.Kunder.FindAsync(endreBillett.Id);
                 if(endre.Poststed.Postnr != endreBillett.Postnr)
                 {
-                    var sjekkPostnr = _kundeDB.Poststeder.Find(endreBillett.Postnr);
+                    var sjekkPostnr = _kundeDB.Poststeder.FindAsync(endreBillett.Postnr);
                     if(sjekkPostnr == null)
                     {
                         var poststedsRad = new Poststeder();
@@ -208,12 +208,15 @@ namespace Gruppeoppgave1_Webapplikasjoner.DAL
             {
                 var ruteEndre = await _kundeDB.Rutere.FindAsync(endreRute.Id);
                 ruteEndre.TilFra = endreRute.TilFra;
+                _kundeDB.Rutere.Update(ruteEndre);
+                await _kundeDB.SaveChangesAsync();
+                return true;
             }
             catch
             {
                 return false;
             }
-            return true;
+           
         }
 
         public static byte[] LagHash(string passord, byte[] salt)

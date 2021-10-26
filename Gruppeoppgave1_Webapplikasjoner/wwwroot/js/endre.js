@@ -51,9 +51,14 @@ function validerOgLagreBillett() {
     }
 }
 
+function GetUrl(url) {
+    let a = url.split('?')[1].split("=")[1];
+    console.log(a);
+    return a;
+}
 function endreBestilling() {
     const billett = {
-        id: $("#id").val(),
+        id: GetUrl(window.location.href),
         fornavn: $("#fornavn").val(),
         rute: $("#reiserute").val(),
         telefonnr: $("#telefon").val(),
@@ -68,8 +73,8 @@ function endreBestilling() {
         tid: $("#rutetider").val()
     };
 
-    const url = "Kunde/Endre";
-    $.post(url, billett, function () {
+  //  const url = "Kunde/Endre";
+    $.post("Kunde/Endre", billett, function () {
         window.location.href = 'admin.html';
     })
     .fail(function () {
