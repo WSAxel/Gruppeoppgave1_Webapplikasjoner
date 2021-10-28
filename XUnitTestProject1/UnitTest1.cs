@@ -108,7 +108,7 @@ namespace XUnitTestProject1
 
             var mock = new Mock<IKundeRepository>();
             mock.Setup(k => k.HentAlle()).ReturnsAsync(kundeListe);
-            var kundeController = new KundeController(mock.Object); //skjønner ikke hva som er feil her...
+            var kundeController = new KundeController(mock.Object, null); //skjønner ikke hva som er feil her...
             List<Billett> resultat = await kundeController.HentAlle();
             Assert.Equal<List<Billett>>(kundeListe, resultat);
 
